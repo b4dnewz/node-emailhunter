@@ -1,4 +1,4 @@
-# node-emailhunter 
+# hunter.io 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A simple javascript wrapper for Hunter.io API
 
@@ -96,8 +96,8 @@ The __hunter.io__ is released under the MIT License.
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create a new Pull Request
 
-[npm-image]: https://badge.fury.io/js/node-emailhunter.svg
-[npm-url]: https://npmjs.org/package/node-emailhunter
+[npm-image]: https://badge.fury.io/js/hunter.io.svg
+[npm-url]: https://npmjs.org/package/hunter.io
 [travis-image]: https://travis-ci.org/b4dnewz/node-emailhunter.svg?branch=master
 [travis-url]: https://travis-ci.org/b4dnewz/node-emailhunter
 [daviddm-image]: https://david-dm.org/b4dnewz/node-emailhunter.svg?theme=shields.io
