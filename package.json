@@ -22,6 +22,8 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "coveralls": "^2.13.1",
+    "esdoc": "^1.0.3",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.4.0",
     "eslint-config-xo": "^0.18.2",
@@ -75,6 +77,13 @@
     "plugins": [
       "prettier"
     ]
+  },
+  "esdoc": {
+    "source": "./lib",
+    "destination": "./docs",
+    "plugins": [{
+      "name": "esdoc-standard-plugin"
+    }]
   },
   "repository": "b4dnewz/node-emailhunter",
   "jest": {
