@@ -1,6 +1,6 @@
 {
   "name": "hunter.io",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A simple javascript wrapper for Hunter.io API",
   "homepage": "",
   "author": {
@@ -8,9 +8,14 @@
     "email": "filippo@codekraft.it",
     "url": ""
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/index.js",
-  "keywords": ["email-hunter", "hunterio"],
+  "keywords": [
+    "email-hunter",
+    "hunterio"
+  ],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
@@ -41,7 +46,10 @@
     "postbuild": "git subtree push --prefix dist origin gh-pages"
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
@@ -56,7 +64,9 @@
         }
       ]
     },
-    "plugins": ["prettier"]
+    "plugins": [
+      "prettier"
+    ]
   },
   "esdoc": {
     "source": "./lib",
