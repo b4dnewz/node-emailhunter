@@ -4,31 +4,26 @@
 
 [![NPM](https://nodei.co/npm/hunter.io.png)](https://npmjs.org/package/hunter.io)
 
+This is a __unofficial__ client for Hunter.io.
+
 ## Installation
 
-The module is distributed through npm (node package manager) and can be
+The module is distributed through npm (node package manager) and yast, it can be
 installed using:
 
 ```
-npm install hunter.io --save
+npm install --save hunter.io
+yarn add hunter.io
 ```
 
 ## How to use it
-
-You require the module as any other node.js module:
+Import the module and and create an instance of the hunter:
 ```js
-const EmailHunter = require('hunter.io');
-```
-Then create a new instance with your API key
-```js
+import EmailHunter from 'hunter.io';
 const hunter = new EmailHunter('YOUR API KEY');
 ```
-You can also use that directly
-```js
-const hunter = require('hunter.io')('YOUR API KEY');
-```
 
-Note: Your secret API key, you can generate it in your dashboard from https://hunter.io/api_keys
+__Note__: You can get the Hunter.io API key in your dashboard: https://hunter.io/api_keys
 
 ## Methods
 * __domainSearch__: You give one domain name and it returns all the email addresses using this domain name found on the internet.
@@ -83,6 +78,8 @@ Allows you to get information regarding your Email Hunter account at any time.
 ```js
 hunter.account((err, result) => { });
 ```
+
+---
 
 ## License
 The __hunter.io__ is released under the MIT License.
