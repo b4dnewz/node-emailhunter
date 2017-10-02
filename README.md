@@ -1,23 +1,100 @@
-# node-emailhunter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# node-emailhunter 
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A simple javascript wrapper for Hunter.io API
+
+[![NPM](https://nodei.co/npm/hunter.io.png)](https://npmjs.org/package/hunter.io)
 
 ## Installation
 
-```sh
-$ npm install --save node-emailhunter
+The module is distributed through npm (node package manager) and can be
+installed using:
+
+```
+npm install hunter.io --save
 ```
 
-## Usage
+## How to use it
 
+You require the module as any other node.js module:
 ```js
-const nodeEmailhunter = require('node-emailhunter');
-
-nodeEmailhunter('Rainbow');
+const EmailHunter = require('hunter.io');
 ```
+Then create a new instance with your API key
+```js
+const hunter = new EmailHunter('YOUR API KEY');
+```
+You can also use that directly
+```js
+const hunter = require('hunter.io')('YOUR API KEY');
+```
+
+Note: Your secret API key, you can generate it in your dashboard from https://hunter.io/api_keys
+
+## Methods
+* __domainSearch__: You give one domain name and it returns all the email addresses using this domain name found on the internet.
+* __emailFinder__: This API endpoint generates the most likely email address from a domain name, a first name and a last name.
+* __emailVerifier__: This API endpoint allows you to verify the deliverability of an email address.
+* __emailCount__: This API endpoint allows you to know how many email addresses we have for one domain.
+* __account__: This API endpoint enables you to get information regarding your Hunter account at any time.
+
+---
+
+### Domain Search
+Returns all the email addresses found using one given company name, with our sources.
+```js
+hunter.domainSearch({
+  domain: 'example.com',
+  company: 'Example Company'
+}, (err, result) => { });
+```
+
+### Email Finder
+It find the most likely email address from a domain name, a first name and a last.
+```js
+hunter.emailFinder({
+  full_name: 'John Doe',
+  domain: 'example.com',
+  company: 'Example Company'
+}, (err, result) => { });
+```
+
+### Email Verifier
+Allows you to verify the deliverability of an email address.
+```js
+hunter.emailVerifier('test@mail.com', (err, result) => { });
+
+hunter.emailVerifier({
+  email: 'test@mail.com'
+}, (err, result) => { });
+```
+
+### Email Count
+Allows you to know how many email addresses we have for one domain.
+```js
+hunter.emailCount('example.com', (err, result) => { });
+
+hunter.emailCount({
+  domain: 'example.com'
+}, (err, result) => { });
+```
+
+### Account information
+Allows you to get information regarding your Email Hunter account at any time.
+```js
+hunter.account((err, result) => { });
+```
+
 ## License
+The __hunter.io__ is released under the MIT License.
 
-MIT © [b4dnewz]()
+## Contributing
 
+1. Fork it ( https://github.com/b4dnewz/node-emailhunter/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Write some tests and run (`npm run test`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
 
 [npm-image]: https://badge.fury.io/js/node-emailhunter.svg
 [npm-url]: https://npmjs.org/package/node-emailhunter
