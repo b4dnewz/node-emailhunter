@@ -37,7 +37,8 @@
     "pretest": "eslint ./lib",
     "test": "jest --coverage",
     "prebuild": "esdoc",
-    "build": "webpack"
+    "build": "webpack",
+    "postbuild": "git subtree push --prefix dist origin gh-pages"
   },
   "eslintConfig": {
     "extends": ["xo", "prettier"],
