@@ -1,0 +1,986 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "lib/index.js",
+    "content": "'use strict';\n\n// Script dependencies\nimport axios from 'axios';\nimport qs from 'querystring';\n\n// Hunter.io API Endopoint V2\nconst API_ENDPOINT = 'https://api.hunter.io/v2';\n\n// Clear object from properties with empty values\nconst clean = object => {\n  return Object.keys(object).reduce((r, e) => {\n    if (typeof object[e] !== 'undefined' && object[e] !== null && object[e] !== '') {\n      r[e] = object[e];\n    }\n    return r;\n  }, {});\n};\n\n/**\n * The unoffial Hunter.io javascript client\n */\nexport default class EmailHunter {\n  constructor(key) {\n    // Exit if key is empty\n    if (!key || key === '') {\n      throw new Error('You must enter the Hunter.io API key.');\n    }\n\n    /**\n     * The Hunter.io api key\n     * @type {String}\n     */\n    this.apiKey = key;\n  }\n\n  // Do the http call\n  run({ action = 'GET', type, id = '', options = {}, callback = () => {} }) {\n    // Build the request url\n    let query = qs.stringify(options);\n    let apiKey = qs.stringify({ api_key: this.apiKey });\n\n    // The xhr request object\n    let req = null;\n\n    // Basic url\n    let url = `${API_ENDPOINT}/${type}/${id}?${apiKey}`;\n\n    // Clean null values and empty strings\n    options = clean(options);\n\n    // Switch request types\n    switch (action) {\n      case 'POST':\n        req = axios.post(url, options);\n        break;\n      case 'PUT':\n        req = axios.put(url, options);\n        break;\n      case 'DELETE':\n        req = axios.delete(url);\n        break;\n      default:\n        if (query) {\n          url += '&' + query;\n        }\n        req = axios.get(url);\n        break;\n    }\n\n    // Perform the request\n    return req.then(res => callback(null, res.data)).catch(err => {\n      err = err.response ? err.response.data : err;\n      callback(err);\n    });\n  }\n\n  /**\n   * The object which contains all the leads methods\n   * @see https://hunter.io/api/v2/docs#leads\n   * @return {Object} The leads API methods\n   */\n  get leads() {\n    const self = this;\n    return {\n      /**\n       * Returns all the leads already saved in your account.\n       * The leads are returned in sorted order, with the most recent leads appearing first.\n       * The optional parameters can be combined to filter the results.\n       * @see https://hunter.io/api/v2/docs#list-leads\n       * @param  {object}   options  The leads list optional arguments\n       * @param  {Function} callback The callback to run when operation is over\n       */\n      list: function(options, callback) {\n        return self.run({\n          type: 'leads',\n          options,\n          callback\n        });\n      },\n\n      /**\n       * Retrieves all the fields of a lead.\n       * @see https://hunter.io/api/v2/docs#get-lead\n       * @param  {number}   id       The lead id number\n       * @param  {Function} callback The callback to run when operation is over\n       */\n      retrieve: function(id, callback) {\n        return self.run({\n          type: 'leads',\n          id,\n          callback\n        });\n      },\n\n      /**\n       * Creates a new lead. The parameters must be passed as a JSON hash.\n       * @see https://hunter.io/api/v2/docs#create-lead\n       * @param  {Object}   options  The leads create arguments\n       * @param  {Function} callback The callback to run when operation is over\n       */\n      create: function(options, callback) {\n        return self.run({\n          action: 'POST',\n          type: 'leads',\n          options,\n          callback\n        });\n      },\n\n      /**\n       * Updates an existing lead. The updated values must be passed as a JSON hash.\n       * The fields you can update are the same params you can give when you create a lead.\n       * @see https://hunter.io/api/v2/docs#update-lead\n       * @param  {number}   id       The lead id number\n       * @param  {Object}   options  The fields to update\n       * @param  {Function} callback The callback to run when operation is over\n       */\n      update: function(id, options, callback) {\n        return self.run({\n          action: 'PUT',\n          type: 'leads',\n          id,\n          options,\n          callback\n        });\n      },\n\n      /**\n       * Deletes an existing lead.\n       * @see https://hunter.io/api/v2/docs#delete-lead\n       * @param  {number}   id       The lead id number\n       * @param  {Function} callback The callback to run when operation is over\n       */\n      delete: function(id, callback) {\n        return self.run({\n          action: 'DELETE',\n          type: 'leads',\n          id,\n          callback\n        });\n      }\n    };\n  }\n\n  /**\n   * The object which contains all the leads_list methods\n   * @return {Object} The leads_list API methods\n   */\n  get leadsList() {}\n\n  /**\n   * This API endpoint generates the most likely email address from a domain name, a first name and a last name.\n   * @param  {Object} options The call options\n   * @param  {Function} callback The callback to run when operation is over\n   * @see https://hunter.io/api/v2/docs#email-finder\n   */\n  emailFinder(options, callback) {\n    return this.run({\n      type: 'email-finder',\n      options,\n      callback\n    });\n  }\n\n  /**\n   * This API endpoint allows you to verify the deliverability of an email address.\n   * @param  {String|Object} options The email to verify\n   * @param  {Function} callback The callback to run when operation is over\n   * @see https://hunter.io/api/v2/docs#email-verifier\n   */\n  emailVerifier(email, callback) {\n    const options = typeof email === 'object' ? email : { email };\n    return this.run({\n      type: 'email-verifier',\n      options,\n      callback\n    });\n  }\n\n  /**\n   * This API endpoint allows you to know how many email addresses we have for one domain.\n   * It's free and doesn't require authentication.\n   * @param  {String|Object} domain The domain to check\n   * @param  {Function} callback The callback to run when operation is over\n   * @see https://hunter.io/api/v2/docs#email-count\n   */\n  emailCount(domain, callback) {\n    const options = typeof domain === 'object' ? domain : { domain };\n    return this.run({\n      type: 'email-count',\n      options,\n      callback\n    });\n  }\n\n  /**\n   * One key feature of Hunter is to search all the email addresses corresponding to one website.\n   * You give one domain name and it returns all the email addresses using this domain name found on the internet.\n   * @param  {Object} options The call options\n   * @param  {Function} callback The callback to run when operation is over\n   * @see https://hunter.io/api/v2/docs#domain-search\n   */\n  domainSearch(options, callback) {\n    return this.run({\n      type: 'domain-search',\n      options,\n      callback\n    });\n  }\n\n  /**\n   * This API endpoint enables you to get information regarding your Hunter account at any time.\n   * @param  {Function} callback The callback to run when operation is over\n   * @see https://hunter.io/api/v2/docs#account\n   */\n  account(callback) {\n    return this.run({\n      type: 'account',\n      callback\n    });\n  }\n}\n",
+    "static": true,
+    "longname": "C:/Users/winflop/Desktop/gits/node/node-emailhunter/lib/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "API_ENDPOINT",
+    "memberof": "lib/index.js",
+    "static": true,
+    "longname": "lib/index.js~API_ENDPOINT",
+    "access": "public",
+    "export": false,
+    "importPath": "hunter.io",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "function",
+    "name": "clean",
+    "memberof": "lib/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/index.js~clean",
+    "access": "public",
+    "export": false,
+    "importPath": "hunter.io",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "object",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "class",
+    "name": "EmailHunter",
+    "memberof": "lib/index.js",
+    "static": true,
+    "longname": "lib/index.js~EmailHunter",
+    "access": "public",
+    "export": true,
+    "importPath": "hunter.io",
+    "importStyle": "EmailHunter",
+    "description": "The unoffial Hunter.io javascript client",
+    "lineNumber": 23,
+    "interface": false
+  },
+  {
+    "__docId__": 52,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "apiKey",
+    "memberof": "lib/index.js~EmailHunter",
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#apiKey",
+    "access": "public",
+    "description": "The Hunter.io api key",
+    "lineNumber": 34,
+    "type": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "name": "run",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"action\": *, \"type\": *, \"id\": *, \"options\": *, \"callback\": *}"
+        ],
+        "defaultRaw": {
+          "action": null,
+          "type": null,
+          "id": null,
+          "options": null,
+          "callback": null
+        },
+        "defaultValue": "{\"action\":null,\"type\":null,\"id\":null,\"options\":null,\"callback\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "get",
+    "name": "leads",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#leads",
+    "access": "public",
+    "description": "The object which contains all the leads methods",
+    "see": [
+      "https://hunter.io/api/v2/docs#leads"
+    ],
+    "lineNumber": 83,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "The leads API methods"
+    },
+    "type": {
+      "types": [
+        "{\"list\": *, \"retrieve\": *, \"create\": *, \"update\": *, \"delete\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "get",
+    "name": "leadsList",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#leadsList",
+    "access": "public",
+    "description": "The object which contains all the leads_list methods",
+    "lineNumber": 170,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "The leads_list API methods"
+    },
+    "type": null
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "name": "emailFinder",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#emailFinder",
+    "access": "public",
+    "description": "This API endpoint generates the most likely email address from a domain name, a first name and a last name.",
+    "see": [
+      "https://hunter.io/api/v2/docs#email-finder"
+    ],
+    "lineNumber": 178,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "The call options"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The callback to run when operation is over"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "name": "emailVerifier",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#emailVerifier",
+    "access": "public",
+    "description": "This API endpoint allows you to verify the deliverability of an email address.",
+    "see": [
+      "https://hunter.io/api/v2/docs#email-verifier"
+    ],
+    "lineNumber": 192,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "The email to verify"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The callback to run when operation is over"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "name": "emailCount",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#emailCount",
+    "access": "public",
+    "description": "This API endpoint allows you to know how many email addresses we have for one domain.\nIt's free and doesn't require authentication.",
+    "see": [
+      "https://hunter.io/api/v2/docs#email-count"
+    ],
+    "lineNumber": 208,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String",
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "domain",
+        "description": "The domain to check"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The callback to run when operation is over"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "domainSearch",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#domainSearch",
+    "access": "public",
+    "description": "One key feature of Hunter is to search all the email addresses corresponding to one website.\nYou give one domain name and it returns all the email addresses using this domain name found on the internet.",
+    "see": [
+      "https://hunter.io/api/v2/docs#domain-search"
+    ],
+    "lineNumber": 224,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "The call options"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The callback to run when operation is over"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "account",
+    "memberof": "lib/index.js~EmailHunter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/index.js~EmailHunter#account",
+    "access": "public",
+    "description": "This API endpoint enables you to get information regarding your Hunter account at any time.",
+    "see": [
+      "https://hunter.io/api/v2/docs#account"
+    ],
+    "lineNumber": 237,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The callback to run when operation is over"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# hunter.io \r\n[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Known Vulnerabilities][snyk-image]][snyk-url]\r\n> A simple javascript wrapper for Hunter.io API\r\n\r\n[![NPM](https://nodei.co/npm/hunter.io.png)](https://npmjs.org/package/hunter.io)\r\n\r\nThis is a __unofficial__ client for Hunter.io.\r\n\r\n## Installation\r\n\r\nThe module is distributed through npm (node package manager) and yast, it can be\r\ninstalled using:\r\n\r\n```\r\nnpm install --save hunter.io\r\nyarn add hunter.io\r\n```\r\n\r\n## How to use it\r\nImport the module and and create an instance of the hunter:\r\n```js\r\nimport EmailHunter from 'hunter.io';\r\nconst hunter = new EmailHunter('YOUR API KEY');\r\n```\r\n\r\n__Note__: You can get the Hunter.io API key in your dashboard: https://hunter.io/api_keys\r\n\r\n## Methods\r\n* __domainSearch__: You give one domain name and it returns all the email addresses using this domain name found on the internet.\r\n* __emailFinder__: This API endpoint generates the most likely email address from a domain name, a first name and a last name.\r\n* __emailVerifier__: This API endpoint allows you to verify the deliverability of an email address.\r\n* __emailCount__: This API endpoint allows you to know how many email addresses we have for one domain.\r\n* __account__: This API endpoint enables you to get information regarding your Hunter account at any time.\r\n\r\n---\r\n\r\n### Domain Search\r\nReturns all the email addresses found using one given company name, with our sources.\r\n```js\r\nhunter.domainSearch({\r\n  domain: 'example.com',\r\n  company: 'Example Company'\r\n}, (err, result) => { });\r\n```\r\n\r\n### Email Finder\r\nIt find the most likely email address from a domain name, a first name and a last.\r\n```js\r\nhunter.emailFinder({\r\n  full_name: 'John Doe',\r\n  domain: 'example.com',\r\n  company: 'Example Company'\r\n}, (err, result) => { });\r\n```\r\n\r\n### Email Verifier\r\nAllows you to verify the deliverability of an email address.\r\n```js\r\nhunter.emailVerifier('test@mail.com', (err, result) => { });\r\n\r\nhunter.emailVerifier({\r\n  email: 'test@mail.com'\r\n}, (err, result) => { });\r\n```\r\n\r\n### Email Count\r\nAllows you to know how many email addresses we have for one domain.\r\n```js\r\nhunter.emailCount('example.com', (err, result) => { });\r\n\r\nhunter.emailCount({\r\n  domain: 'example.com'\r\n}, (err, result) => { });\r\n```\r\n\r\n### Account information\r\nAllows you to get information regarding your Email Hunter account at any time.\r\n```js\r\nhunter.account((err, result) => { });\r\n```\r\n\r\n---\r\n\r\n## License\r\nThe __hunter.io__ is released under the MIT License.\r\n\r\n## Contributing\r\n\r\n1. Fork it ( https://github.com/b4dnewz/node-emailhunter/fork )\r\n2. Create your feature branch (`git checkout -b my-new-feature`)\r\n3. Commit your changes (`git commit -am 'Add some feature'`)\r\n4. Write some tests and run (`npm run test`)\r\n5. Push to the branch (`git push origin my-new-feature`)\r\n6. Create a new Pull Request\r\n\r\n[npm-image]: https://badge.fury.io/js/hunter.io.svg\r\n[npm-url]: https://npmjs.org/package/hunter.io\r\n[travis-image]: https://travis-ci.org/b4dnewz/node-emailhunter.svg?branch=master\r\n[travis-url]: https://travis-ci.org/b4dnewz/node-emailhunter\r\n[daviddm-image]: https://david-dm.org/b4dnewz/node-emailhunter.svg?theme=shields.io\r\n[daviddm-url]: https://david-dm.org/b4dnewz/node-emailhunter\r\n[coveralls-image]: https://coveralls.io/repos/b4dnewz/node-emailhunter/badge.svg\r\n[coveralls-url]: https://coveralls.io/r/b4dnewz/node-emailhunter\r\n[snyk-image]: https://snyk.io/test/github/b4dnewz/node-emailhunter/badge.svg\r\n[snyk-url]: https://snyk.io/test/github/b4dnewz/node-emailhunter\r\n",
+    "longname": "C:\\Users\\winflop\\Desktop\\gits\\node\\node-emailhunter\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"hunter.io\",\n  \"version\": \"0.0.1\",\n  \"description\": \"A simple javascript wrapper for Hunter.io API\",\n  \"homepage\": \"\",\n  \"author\": {\n    \"name\": \"b4dnewz\",\n    \"email\": \"filippo@codekraft.it\",\n    \"url\": \"\"\n  },\n  \"files\": [\"lib\"],\n  \"main\": \"lib/index.js\",\n  \"keywords\": [\"email-hunter\", \"hunterio\"],\n  \"devDependencies\": {\n    \"babel-core\": \"^6.26.0\",\n    \"babel-jest\": \"^21.2.0\",\n    \"babel-loader\": \"^7.1.2\",\n    \"babel-preset-es2015\": \"^6.24.1\",\n    \"coveralls\": \"^2.13.1\",\n    \"esdoc\": \"^1.0.3\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^4.1.0\",\n    \"eslint-config-prettier\": \"^2.4.0\",\n    \"eslint-config-xo\": \"^0.18.2\",\n    \"eslint-plugin-prettier\": \"^2.2.0\",\n    \"husky\": \"^0.14.3\",\n    \"jest\": \"^21.0.0\",\n    \"jest-cli\": \"^21.0.0\",\n    \"nock\": \"^9.0.22\",\n    \"nsp\": \"^2.6.3\",\n    \"prettier\": \"^1.7.0\",\n    \"regenerator-runtime\": \"^0.11.0\",\n    \"webpack\": \"^3.6.0\"\n  },\n  \"scripts\": {\n    \"prepublish\": \"nsp check\",\n    \"pretest\": \"eslint ./lib\",\n    \"test\": \"jest --coverage\",\n    \"prebuild\": \"esdoc\",\n    \"build\": \"webpack\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\"xo\", \"prettier\"],\n    \"env\": {\n      \"jest\": true,\n      \"node\": true\n    },\n    \"rules\": {\n      \"camelcase\": 1,\n      \"prettier/prettier\": [\n        \"error\",\n        {\n          \"singleQuote\": true,\n          \"printWidth\": 90\n        }\n      ]\n    },\n    \"plugins\": [\"prettier\"]\n  },\n  \"esdoc\": {\n    \"source\": \"./lib\",\n    \"destination\": \"./docs\",\n    \"plugins\": [\n      {\n        \"name\": \"esdoc-standard-plugin\"\n      }\n    ]\n  },\n  \"repository\": \"b4dnewz/node-emailhunter\",\n  \"jest\": {\n    \"testEnvironment\": \"node\"\n  },\n  \"license\": \"MIT\",\n  \"dependencies\": {\n    \"axios\": \"^0.16.2\",\n    \"querystring\": \"^0.2.0\"\n  }\n}\n",
+    "longname": "C:\\Users\\winflop\\Desktop\\gits\\node\\node-emailhunter\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

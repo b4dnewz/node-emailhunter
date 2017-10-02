@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | hunter.io</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A simple javascript wrapper for Hunter.io API"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="hunter.io"><meta property="twitter:description" content="A simple javascript wrapper for Hunter.io API"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/b4dnewz/node-emailhunter"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html">EmailHunter</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="hunter-io">hunter.io</h1><p><a href="https://npmjs.org/package/hunter.io"><img src="https://badge.fury.io/js/hunter.io.svg" alt="NPM version"></a> <a href="https://travis-ci.org/b4dnewz/node-emailhunter"><img src="https://travis-ci.org/b4dnewz/node-emailhunter.svg?branch=master" alt="Build Status"></a> <a href="https://david-dm.org/b4dnewz/node-emailhunter"><img src="https://david-dm.org/b4dnewz/node-emailhunter.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://coveralls.io/r/b4dnewz/node-emailhunter"><img src="https://coveralls.io/repos/b4dnewz/node-emailhunter/badge.svg" alt="Coverage percentage"></a> <a href="https://snyk.io/test/github/b4dnewz/node-emailhunter"><img src="https://snyk.io/test/github/b4dnewz/node-emailhunter/badge.svg" alt="Known Vulnerabilities"></a></p>
+<blockquote>
+<p>A simple javascript wrapper for Hunter.io API</p>
+</blockquote>
+<p><a href="https://npmjs.org/package/hunter.io"><img src="https://nodei.co/npm/hunter.io.png" alt="NPM"></a></p>
+<p>This is a <strong>unofficial</strong> client for Hunter.io.</p>
+<h2 id="installation">Installation</h2><p>The module is distributed through npm (node package manager) and yast, it can be
+installed using:</p>
+<pre><code><code class="source-code prettyprint">npm install --save hunter.io
+yarn add hunter.io</code>
+</code></pre><h2 id="how-to-use-it">How to use it</h2><p>Import the module and and create an instance of the hunter:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import EmailHunter from &apos;hunter.io&apos;;
+const hunter = new EmailHunter(&apos;YOUR API KEY&apos;);</code>
+</code></pre>
+<p><strong>Note</strong>: You can get the Hunter.io API key in your dashboard: <a href="https://hunter.io/api_keys">https://hunter.io/api_keys</a></p>
+<h2 id="methods">Methods</h2><ul>
+<li><strong>domainSearch</strong>: You give one domain name and it returns all the email addresses using this domain name found on the internet.</li>
+<li><strong>emailFinder</strong>: This API endpoint generates the most likely email address from a domain name, a first name and a last name.</li>
+<li><strong>emailVerifier</strong>: This API endpoint allows you to verify the deliverability of an email address.</li>
+<li><strong>emailCount</strong>: This API endpoint allows you to know how many email addresses we have for one domain.</li>
+<li><strong>account</strong>: This API endpoint enables you to get information regarding your Hunter account at any time.</li>
+</ul>
+<hr>
+<h3 id="domain-search">Domain Search</h3><p>Returns all the email addresses found using one given company name, with our sources.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.domainSearch({
+  domain: &apos;example.com&apos;,
+  company: &apos;Example Company&apos;
+}, (err, result) =&gt; { });</code>
+</code></pre>
+<h3 id="email-finder">Email Finder</h3><p>It find the most likely email address from a domain name, a first name and a last.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.emailFinder({
+  full_name: &apos;John Doe&apos;,
+  domain: &apos;example.com&apos;,
+  company: &apos;Example Company&apos;
+}, (err, result) =&gt; { });</code>
+</code></pre>
+<h3 id="email-verifier">Email Verifier</h3><p>Allows you to verify the deliverability of an email address.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.emailVerifier(&apos;test@mail.com&apos;, (err, result) =&gt; { });
+
+hunter.emailVerifier({
+  email: &apos;test@mail.com&apos;
+}, (err, result) =&gt; { });</code>
+</code></pre>
+<h3 id="email-count">Email Count</h3><p>Allows you to know how many email addresses we have for one domain.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.emailCount(&apos;example.com&apos;, (err, result) =&gt; { });
+
+hunter.emailCount({
+  domain: &apos;example.com&apos;
+}, (err, result) =&gt; { });</code>
+</code></pre>
+<h3 id="account-information">Account information</h3><p>Allows you to get information regarding your Email Hunter account at any time.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.account((err, result) =&gt; { });</code>
+</code></pre>
+<hr>
+<h2 id="license">License</h2><p>The <strong>hunter.io</strong> is released under the MIT License.</p>
+<h2 id="contributing">Contributing</h2><ol>
+<li>Fork it ( <a href="https://github.com/b4dnewz/node-emailhunter/fork">https://github.com/b4dnewz/node-emailhunter/fork</a> )</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am &apos;Add some feature&apos;</code>)</li>
+<li>Write some tests and run (<code>npm run test</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.3)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "EmailHunter#emailVerifier",
+    "filePath": "lib/index.js",
+    "lines": [
+      {
+        "lineNumber": 185,
+        "line": "  /**"
+      },
+      {
+        "lineNumber": 186,
+        "line": "   * This API endpoint allows you to verify the deliverability of an email address."
+      },
+      {
+        "lineNumber": 187,
+        "line": "   * @param  {String|Object} options The email to verify"
+      },
+      {
+        "lineNumber": 188,
+        "line": "   * @param  {Function} callback The callback to run when operation is over"
+      },
+      {
+        "lineNumber": 189,
+        "line": "   * @see https://hunter.io/api/v2/docs#email-verifier"
+      },
+      {
+        "lineNumber": 190,
+        "line": "   */"
+      },
+      {
+        "lineNumber": 191,
+        "line": "  emailVerifier(email, callback) {"
+      }
+    ],
+    "codeParams": [
+      "email",
+      "callback"
+    ],
+    "docParams": [
+      "options",
+      "callback"
+    ]
+  }
+]

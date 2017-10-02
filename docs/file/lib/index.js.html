@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/index.js | hunter.io</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A simple javascript wrapper for Hunter.io API"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="hunter.io"><meta property="twitter:description" content="A simple javascript wrapper for Hunter.io API"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/b4dnewz/node-emailhunter"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html">EmailHunter</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+// Script dependencies
+import axios from &apos;axios&apos;;
+import qs from &apos;querystring&apos;;
+
+// Hunter.io API Endopoint V2
+const API_ENDPOINT = &apos;https://api.hunter.io/v2&apos;;
+
+// Clear object from properties with empty values
+const clean = object =&gt; {
+  return Object.keys(object).reduce((r, e) =&gt; {
+    if (typeof object[e] !== &apos;undefined&apos; &amp;&amp; object[e] !== null &amp;&amp; object[e] !== &apos;&apos;) {
+      r[e] = object[e];
+    }
+    return r;
+  }, {});
+};
+
+/**
+ * The unoffial Hunter.io javascript client
+ */
+export default class EmailHunter {
+  constructor(key) {
+    // Exit if key is empty
+    if (!key || key === &apos;&apos;) {
+      throw new Error(&apos;You must enter the Hunter.io API key.&apos;);
+    }
+
+    /**
+     * The Hunter.io api key
+     * @type {String}
+     */
+    this.apiKey = key;
+  }
+
+  // Do the http call
+  run({ action = &apos;GET&apos;, type, id = &apos;&apos;, options = {}, callback = () =&gt; {} }) {
+    // Build the request url
+    let query = qs.stringify(options);
+    let apiKey = qs.stringify({ api_key: this.apiKey });
+
+    // The xhr request object
+    let req = null;
+
+    // Basic url
+    let url = `${API_ENDPOINT}/${type}/${id}?${apiKey}`;
+
+    // Clean null values and empty strings
+    options = clean(options);
+
+    // Switch request types
+    switch (action) {
+      case &apos;POST&apos;:
+        req = axios.post(url, options);
+        break;
+      case &apos;PUT&apos;:
+        req = axios.put(url, options);
+        break;
+      case &apos;DELETE&apos;:
+        req = axios.delete(url);
+        break;
+      default:
+        if (query) {
+          url += &apos;&amp;&apos; + query;
+        }
+        req = axios.get(url);
+        break;
+    }
+
+    // Perform the request
+    return req.then(res =&gt; callback(null, res.data)).catch(err =&gt; {
+      err = err.response ? err.response.data : err;
+      callback(err);
+    });
+  }
+
+  /**
+   * The object which contains all the leads methods
+   * @see https://hunter.io/api/v2/docs#leads
+   * @return {Object} The leads API methods
+   */
+  get leads() {
+    const self = this;
+    return {
+      /**
+       * Returns all the leads already saved in your account.
+       * The leads are returned in sorted order, with the most recent leads appearing first.
+       * The optional parameters can be combined to filter the results.
+       * @see https://hunter.io/api/v2/docs#list-leads
+       * @param  {object}   options  The leads list optional arguments
+       * @param  {Function} callback The callback to run when operation is over
+       */
+      list: function(options, callback) {
+        return self.run({
+          type: &apos;leads&apos;,
+          options,
+          callback
+        });
+      },
+
+      /**
+       * Retrieves all the fields of a lead.
+       * @see https://hunter.io/api/v2/docs#get-lead
+       * @param  {number}   id       The lead id number
+       * @param  {Function} callback The callback to run when operation is over
+       */
+      retrieve: function(id, callback) {
+        return self.run({
+          type: &apos;leads&apos;,
+          id,
+          callback
+        });
+      },
+
+      /**
+       * Creates a new lead. The parameters must be passed as a JSON hash.
+       * @see https://hunter.io/api/v2/docs#create-lead
+       * @param  {Object}   options  The leads create arguments
+       * @param  {Function} callback The callback to run when operation is over
+       */
+      create: function(options, callback) {
+        return self.run({
+          action: &apos;POST&apos;,
+          type: &apos;leads&apos;,
+          options,
+          callback
+        });
+      },
+
+      /**
+       * Updates an existing lead. The updated values must be passed as a JSON hash.
+       * The fields you can update are the same params you can give when you create a lead.
+       * @see https://hunter.io/api/v2/docs#update-lead
+       * @param  {number}   id       The lead id number
+       * @param  {Object}   options  The fields to update
+       * @param  {Function} callback The callback to run when operation is over
+       */
+      update: function(id, options, callback) {
+        return self.run({
+          action: &apos;PUT&apos;,
+          type: &apos;leads&apos;,
+          id,
+          options,
+          callback
+        });
+      },
+
+      /**
+       * Deletes an existing lead.
+       * @see https://hunter.io/api/v2/docs#delete-lead
+       * @param  {number}   id       The lead id number
+       * @param  {Function} callback The callback to run when operation is over
+       */
+      delete: function(id, callback) {
+        return self.run({
+          action: &apos;DELETE&apos;,
+          type: &apos;leads&apos;,
+          id,
+          callback
+        });
+      }
+    };
+  }
+
+  /**
+   * The object which contains all the leads_list methods
+   * @return {Object} The leads_list API methods
+   */
+  get leadsList() {}
+
+  /**
+   * This API endpoint generates the most likely email address from a domain name, a first name and a last name.
+   * @param  {Object} options The call options
+   * @param  {Function} callback The callback to run when operation is over
+   * @see https://hunter.io/api/v2/docs#email-finder
+   */
+  emailFinder(options, callback) {
+    return this.run({
+      type: &apos;email-finder&apos;,
+      options,
+      callback
+    });
+  }
+
+  /**
+   * This API endpoint allows you to verify the deliverability of an email address.
+   * @param  {String|Object} options The email to verify
+   * @param  {Function} callback The callback to run when operation is over
+   * @see https://hunter.io/api/v2/docs#email-verifier
+   */
+  emailVerifier(email, callback) {
+    const options = typeof email === &apos;object&apos; ? email : { email };
+    return this.run({
+      type: &apos;email-verifier&apos;,
+      options,
+      callback
+    });
+  }
+
+  /**
+   * This API endpoint allows you to know how many email addresses we have for one domain.
+   * It&apos;s free and doesn&apos;t require authentication.
+   * @param  {String|Object} domain The domain to check
+   * @param  {Function} callback The callback to run when operation is over
+   * @see https://hunter.io/api/v2/docs#email-count
+   */
+  emailCount(domain, callback) {
+    const options = typeof domain === &apos;object&apos; ? domain : { domain };
+    return this.run({
+      type: &apos;email-count&apos;,
+      options,
+      callback
+    });
+  }
+
+  /**
+   * One key feature of Hunter is to search all the email addresses corresponding to one website.
+   * You give one domain name and it returns all the email addresses using this domain name found on the internet.
+   * @param  {Object} options The call options
+   * @param  {Function} callback The callback to run when operation is over
+   * @see https://hunter.io/api/v2/docs#domain-search
+   */
+  domainSearch(options, callback) {
+    return this.run({
+      type: &apos;domain-search&apos;,
+      options,
+      callback
+    });
+  }
+
+  /**
+   * This API endpoint enables you to get information regarding your Hunter account at any time.
+   * @param  {Function} callback The callback to run when operation is over
+   * @see https://hunter.io/api/v2/docs#account
+   */
+  account(callback) {
+    return this.run({
+      type: &apos;account&apos;,
+      callback
+    });
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.3)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
