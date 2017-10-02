@@ -43,7 +43,7 @@
     "test": "jest --coverage",
     "prebuild": "esdoc",
     "build": "webpack",
-    "postbuild": "git subtree push --prefix dist origin gh-pages"
+    "postbuild": "git subtree push --prefix docs origin gh-pages"
   },
   "eslintConfig": {
     "extends": [
