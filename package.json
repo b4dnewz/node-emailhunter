@@ -8,14 +8,9 @@
     "email": "filippo@codekraft.it",
     "url": ""
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "main": "lib/index.js",
-  "keywords": [
-    "email-hunter",
-    "hunterio"
-  ],
+  "keywords": ["email-hunter", "hunterio"],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
@@ -31,7 +26,6 @@
     "husky": "^0.14.3",
     "jest": "^21.0.0",
     "jest-cli": "^21.0.0",
-    "lint-staged": "^4.2.1",
     "nock": "^9.0.22",
     "nsp": "^2.6.3",
     "prettier": "^1.7.0",
@@ -40,26 +34,13 @@
   },
   "scripts": {
     "prepublish": "nsp check",
-    "pretest": "eslint ./lib/index.js",
-    "precommit": "lint-staged",
+    "pretest": "eslint ./lib",
     "test": "jest --coverage",
+    "prebuild": "esdoc",
     "build": "webpack"
   },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -74,16 +55,16 @@
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
   "esdoc": {
     "source": "./lib",
     "destination": "./docs",
-    "plugins": [{
-      "name": "esdoc-standard-plugin"
-    }]
+    "plugins": [
+      {
+        "name": "esdoc-standard-plugin"
+      }
+    ]
   },
   "repository": "b4dnewz/node-emailhunter",
   "jest": {
