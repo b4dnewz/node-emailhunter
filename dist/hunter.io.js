@@ -954,7 +954,6 @@ module.exports = Cancel;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.EmailHunter = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -985,7 +984,11 @@ var clean = function clean(object) {
   }, {});
 };
 
-var EmailHunter = exports.EmailHunter = function () {
+/**
+ * The unoffial Hunter.io javascript client
+ */
+
+var EmailHunter = function () {
   function EmailHunter(key) {
     _classCallCheck(this, EmailHunter);
 
@@ -994,7 +997,10 @@ var EmailHunter = exports.EmailHunter = function () {
       throw new Error('You must enter the Hunter.io API key.');
     }
 
-    // Set the api key
+    /**
+     * The Hunter.io api key
+     * @type {String}
+     */
     this.apiKey = key;
   }
 
@@ -1067,6 +1073,8 @@ var EmailHunter = exports.EmailHunter = function () {
 
     /**
      * This API endpoint generates the most likely email address from a domain name, a first name and a last name.
+     * @param  {Object} options The call options
+     * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-finder
      */
     value: function emailFinder(options, callback) {
@@ -1079,6 +1087,8 @@ var EmailHunter = exports.EmailHunter = function () {
 
     /**
      * This API endpoint allows you to verify the deliverability of an email address.
+     * @param  {String|Object} options The email to verify
+     * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-verifier
      */
 
@@ -1094,7 +1104,10 @@ var EmailHunter = exports.EmailHunter = function () {
     }
 
     /**
-     * This API endpoint allows you to know how many email addresses we have for one domain. It's free and doesn't require authentication.
+     * This API endpoint allows you to know how many email addresses we have for one domain.
+     * It's free and doesn't require authentication.
+     * @param  {String|Object} domain The domain to check
+     * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-count
      */
 
@@ -1112,6 +1125,8 @@ var EmailHunter = exports.EmailHunter = function () {
     /**
      * One key feature of Hunter is to search all the email addresses corresponding to one website.
      * You give one domain name and it returns all the email addresses using this domain name found on the internet.
+     * @param  {Object} options The call options
+     * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#domain-search
      */
 
@@ -1127,6 +1142,7 @@ var EmailHunter = exports.EmailHunter = function () {
 
     /**
      * This API endpoint enables you to get information regarding your Hunter account at any time.
+     * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#account
      */
 
@@ -1236,10 +1252,7 @@ var EmailHunter = exports.EmailHunter = function () {
   return EmailHunter;
 }();
 
-// Export the module
-
-
-module.exports = EmailHunter;
+exports.default = EmailHunter;
 
 /***/ }),
 /* 9 */
