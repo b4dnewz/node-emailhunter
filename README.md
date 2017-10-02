@@ -1,5 +1,5 @@
 # hunter.io 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url][![Known Vulnerabilities][snyk-image]][snyk-url]
 > A simple javascript wrapper for Hunter.io API
 
 [![NPM](https://nodei.co/npm/hunter.io.png)](https://npmjs.org/package/hunter.io)
@@ -104,3 +104,5 @@ The __hunter.io__ is released under the MIT License.
 [daviddm-url]: https://david-dm.org/b4dnewz/node-emailhunter
 [coveralls-image]: https://coveralls.io/repos/b4dnewz/node-emailhunter/badge.svg
 [coveralls-url]: https://coveralls.io/r/b4dnewz/node-emailhunter
+[snyk-image]: https://snyk.io/test/github/b4dnewz/node-emailhunter/badge.svg
+[snyk-url]: https://snyk.io/test/github/b4dnewz/node-emailhunter
