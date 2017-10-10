@@ -1,4 +1,4 @@
-# hunter.io 
+# hunter.io
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Known Vulnerabilities][snyk-image]][snyk-url]
 > A simple javascript wrapper for Hunter.io API
 
@@ -31,6 +31,13 @@ __Note__: You can get the Hunter.io API key in your dashboard: https://hunter.io
 * __emailVerifier__: This API endpoint allows you to verify the deliverability of an email address.
 * __emailCount__: This API endpoint allows you to know how many email addresses we have for one domain.
 * __account__: This API endpoint enables you to get information regarding your Hunter account at any time.
+
+* __leads__: The object which contains all the leads methods
+  * __list__: Returns all the leads already saved in your account.
+  * __retrieve__: Retrieves all the fields of a lead.
+  * __create__: Creates a new lead. The parameters must be passed as a JSON hash.
+  * __update__: Updates an existing lead. The updated values must be passed as a JSON hash.
+  * __delete__: Deletes an existing lead by ID.
 
 ---
 
