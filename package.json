@@ -2,7 +2,7 @@
   "name": "hunter.io",
   "version": "0.1.0",
   "description": "A simple javascript wrapper for Hunter.io API",
-  "homepage": "",
+  "homepage": "https://b4dnewz.github.io/node-emailhunter/",
   "author": {
     "name": "b4dnewz",
     "email": "filippo@codekraft.it",
@@ -43,7 +43,7 @@
     "test": "jest --coverage",
     "prebuild": "esdoc",
     "build": "webpack",
-    "postbuild": "git subtree push --prefix docs origin gh-pages"
+    "updatedocs": "git subtree push --prefix docs origin gh-pages"
   },
   "eslintConfig": {
     "extends": [

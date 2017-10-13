@@ -30,18 +30,20 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html">EmailHunter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/leads.js~Leads.html">Leads</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/leads_list.js~LeadsList.html">LeadsList</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import EmailHunter from &apos;<span><a href="file/lib/index.js.html#lineNumber23">hunter.io</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import EmailHunter from &apos;<span><a href="file/lib/index.js.html#lineNumber27">hunter.io</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/index.js.html#lineNumber23">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/index.js.html#lineNumber27">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -158,7 +160,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html#instance-get-leads">leads</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>: {&quot;list&quot;: <span>*</span>, &quot;retrieve&quot;: <span>*</span>, &quot;create&quot;: <span>*</span>, &quot;update&quot;: <span>*</span>, &quot;delete&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html#instance-get-leads">leads</a></span></span><span class="code" data-ice="signature">: <span><a href="class/lib/leads.js~Leads.html">Leads</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -187,7 +189,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html#instance-get-leadsList">leadsList</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html#instance-get-leadsList">leadsList</a></span></span><span class="code" data-ice="signature">: <span><a href="class/lib/leads_list.js~LeadsList.html">LeadsList</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -368,13 +370,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html#instance-method-run">run</a></span></span><span class="code" data-ice="signature">(objectPattern: {&quot;action&quot;: <span>*</span>, &quot;type&quot;: <span>*</span>, &quot;id&quot;: <span>*</span>, &quot;options&quot;: <span>*</span>, &quot;callback&quot;: <span>*</span>}): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html#instance-method-run">run</a></span></span><span class="code" data-ice="signature">(action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, callback: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Call the Hunter.io api internally with specified options</p>
+</div>
       </div>
     </td>
     <td>
@@ -404,7 +407,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber24">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber28">source</a></span></span>
     </span>
   </h3>
 
@@ -450,7 +453,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber34">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 
@@ -490,11 +493,11 @@
     
     
     
-    <span class="code" data-ice="name">leads</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>: {&quot;list&quot;: <span>*</span>, &quot;retrieve&quot;: <span>*</span>, &quot;create&quot;: <span>*</span>, &quot;update&quot;: <span>*</span>, &quot;delete&quot;: <span>*</span>}</span>
+    <span class="code" data-ice="name">leads</span><span class="code" data-ice="signature">: <span><a href="class/lib/leads.js~Leads.html">Leads</a></span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber83">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber94">source</a></span></span>
     </span>
   </h3>
 
@@ -514,7 +517,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/lib/leads.js~Leads.html">Leads</a></span></td>
           <td class="return-desc" data-ice="returnDescription"><p>The leads API methods</p>
 </td>
         </tr>
@@ -547,11 +550,11 @@
     
     
     
-    <span class="code" data-ice="name">leadsList</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span class="code" data-ice="name">leadsList</span><span class="code" data-ice="signature">: <span><a href="class/lib/leads_list.js~LeadsList.html">LeadsList</a></span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber170">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber102">source</a></span></span>
     </span>
   </h3>
 
@@ -571,7 +574,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/lib/leads_list.js~LeadsList.html">LeadsList</a></span></td>
           <td class="return-desc" data-ice="returnDescription"><p>The leads_list API methods</p>
 </td>
         </tr>
@@ -611,7 +614,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber237">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber191">source</a></span></span>
     </span>
   </h3>
 
@@ -665,7 +668,16 @@
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">hunter.account((err, res) =&gt; {
+ console.log(res);
+})</code></pre>
+    </div>
+</div>
 
   
 
@@ -684,7 +696,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber224">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber174">source</a></span></span>
     </span>
   </h3>
 
@@ -765,7 +777,7 @@ You give one domain name and it returns all the email addresses using this domai
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber208">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber158">source</a></span></span>
     </span>
   </h3>
 
@@ -827,7 +839,16 @@ It&apos;s free and doesn&apos;t require authentication.</p>
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">hunter.emailCount(&apos;google.com&apos;, (err, res) =&gt; {
+ console.log(res);
+})</code></pre>
+    </div>
+</div>
 
   
 
@@ -846,7 +867,7 @@ It&apos;s free and doesn&apos;t require authentication.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber178">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber120">source</a></span></span>
     </span>
   </h3>
 
@@ -907,7 +928,20 @@ It&apos;s free and doesn&apos;t require authentication.</p>
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">hunter.emailFinder({
+ domain: &apos;google.com&apos;,
+ first_name: &apos;John&apos;,
+ last_name: &apos;Doe&apos;
+}, (err, res) =&gt; {
+ console.log(res);
+})</code></pre>
+    </div>
+</div>
 
   
 
@@ -926,7 +960,7 @@ It&apos;s free and doesn&apos;t require authentication.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber192">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber138">source</a></span></span>
     </span>
   </h3>
 
@@ -987,7 +1021,16 @@ It&apos;s free and doesn&apos;t require authentication.</p>
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">hunter.emailVerifier(&apos;test@google.com&apos;, (err, res) =&gt; {
+ console.log(res);
+})</code></pre>
+    </div>
+</div>
 
   
 
@@ -1002,18 +1045,19 @@ It&apos;s free and doesn&apos;t require authentication.</p>
     
     
     
-    <span class="code" data-ice="name">run</span><span class="code" data-ice="signature">(objectPattern: {&quot;action&quot;: <span>*</span>, &quot;type&quot;: <span>*</span>, &quot;id&quot;: <span>*</span>, &quot;options&quot;: <span>*</span>, &quot;callback&quot;: <span>*</span>}): <span>*</span></span>
+    <span class="code" data-ice="name">run</span><span class="code" data-ice="signature">(action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, callback: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Call the Hunter.io api internally with specified options</p>
+</div>
 
   
 
@@ -1026,10 +1070,42 @@ It&apos;s free and doesn&apos;t require authentication.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">objectPattern</td>
-      <td data-ice="type" class="code">{&quot;action&quot;: <span>*</span>, &quot;type&quot;: <span>*</span>, &quot;id&quot;: <span>*</span>, &quot;options&quot;: <span>*</span>, &quot;callback&quot;: <span>*</span>}</td>
-      <td data-ice="appendix"><ul><li>default: {&quot;action&quot;:null,&quot;type&quot;:null,&quot;id&quot;:null,&quot;options&quot;:null,&quot;callback&quot;:null}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="name" class="code" data-depth="0">action</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;GET&apos;</li></ul></td>
+      <td data-ice="description"><p>The http action to call</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">type</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The api endpoint name</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">id</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;&apos;</li></ul></td>
+      <td data-ice="description"><p>An optional id number for emails or leads</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">options</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>The api call params</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">callback</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>The callback to run once has done</p>
+</td>
     </tr>
 </tbody>
   </table>

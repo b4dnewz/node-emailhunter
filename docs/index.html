@@ -30,6 +30,8 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html">EmailHunter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/leads.js~Leads.html">Leads</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/leads_list.js~LeadsList.html">LeadsList</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -54,7 +56,27 @@ const hunter = new EmailHunter(&apos;YOUR API KEY&apos;);</code>
 <li><strong>emailFinder</strong>: This API endpoint generates the most likely email address from a domain name, a first name and a last name.</li>
 <li><strong>emailVerifier</strong>: This API endpoint allows you to verify the deliverability of an email address.</li>
 <li><strong>emailCount</strong>: This API endpoint allows you to know how many email addresses we have for one domain.</li>
-<li><strong>account</strong>: This API endpoint enables you to get information regarding your Hunter account at any time.</li>
+<li><p><strong>account</strong>: This API endpoint enables you to get information regarding your Hunter account at any time.</p>
+</li>
+<li><p><strong>leads</strong>: The object which contains all the leads methods</p>
+<ul>
+<li><strong>list</strong>: Returns all the leads already saved in your account.</li>
+<li><strong>retrieve</strong>: Retrieves all the fields of a lead.</li>
+<li><strong>create</strong>: Creates a new lead.</li>
+<li><strong>update</strong>: Updates an existing lead.</li>
+<li><strong>delete</strong>: Deletes an existing lead by ID.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>leadsList</strong>: The object which contains all the leads methods<ul>
+<li><strong>list</strong>: Returns all the leads lists already saved in your account.</li>
+<li><strong>retrieve</strong>: Retrieves all the fields of a leads list.</li>
+<li><strong>create</strong>: Creates a new leads list.</li>
+<li><strong>update</strong>: Updates an existing leads list.</li>
+<li><strong>delete</strong>: Deletes an existing leads list.</li>
+</ul>
+</li>
 </ul>
 <hr>
 <h3 id="domain-search">Domain Search</h3><p>Returns all the email addresses found using one given company name, with our sources.</p>
@@ -86,6 +108,17 @@ hunter.emailCount({
 </code></pre>
 <h3 id="account-information">Account information</h3><p>Allows you to get information regarding your Email Hunter account at any time.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">hunter.account((err, result) =&gt; { });</code>
+</code></pre>
+<h3 id="list-leads">List Leads</h3><p>Returns all the leads already saved in your account. The leads are returned in sorted order, with the most recent leads appearing first. The optional parameters can be combined to filter the results.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.leads.list({
+  limit: 20
+}, (err, result) =&gt; { });</code>
+</code></pre>
+<h3 id="create-a-new-lead">Create a new Lead</h3><p>Creates a new lead. The parameters must be passed as a JSON hash.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">hunter.leads.create({
+  first_name: &apos;Filippo&apos;,
+  last_name: &apos;Conti&apos;
+}, (err, result) =&gt; { });</code>
 </code></pre>
 <hr>
 <h2 id="license">License</h2><p>The <strong>hunter.io</strong> is released under the MIT License.</p>

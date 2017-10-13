@@ -35,9 +35,17 @@ __Note__: You can get the Hunter.io API key in your dashboard: https://hunter.io
 * __leads__: The object which contains all the leads methods
   * __list__: Returns all the leads already saved in your account.
   * __retrieve__: Retrieves all the fields of a lead.
-  * __create__: Creates a new lead. The parameters must be passed as a JSON hash.
-  * __update__: Updates an existing lead. The updated values must be passed as a JSON hash.
+  * __create__: Creates a new lead.
+  * __update__: Updates an existing lead.
   * __delete__: Deletes an existing lead by ID.
+
+
+* __leadsList__: The object which contains all the leads methods
+  * __list__: Returns all the leads lists already saved in your account.
+  * __retrieve__: Retrieves all the fields of a leads list.
+  * __create__: Creates a new leads list.
+  * __update__: Updates an existing leads list.
+  * __delete__: Deletes an existing leads list.
 
 ---
 
@@ -84,6 +92,23 @@ hunter.emailCount({
 Allows you to get information regarding your Email Hunter account at any time.
 ```js
 hunter.account((err, result) => { });
+```
+
+### List Leads
+Returns all the leads already saved in your account. The leads are returned in sorted order, with the most recent leads appearing first. The optional parameters can be combined to filter the results.
+```js
+hunter.leads.list({
+  limit: 20
+}, (err, result) => { });
+```
+
+### Create a new Lead
+Creates a new lead. The parameters must be passed as a JSON hash.
+```js
+hunter.leads.create({
+  first_name: 'Filippo',
+  last_name: 'Conti'
+}, (err, result) => { });
 ```
 
 ---

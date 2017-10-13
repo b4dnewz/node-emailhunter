@@ -30,6 +30,8 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~EmailHunter.html">EmailHunter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/leads.js~Leads.html">Leads</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/leads_list.js~LeadsList.html">LeadsList</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -40,6 +42,10 @@
 // Script dependencies
 import axios from &apos;axios&apos;;
 import qs from &apos;querystring&apos;;
+
+// Sub modules
+import Leads from &apos;./leads.js&apos;;
+import LeadsList from &apos;./leads_list.js&apos;;
 
 // Hunter.io API Endopoint V2
 const API_ENDPOINT = &apos;https://api.hunter.io/v2&apos;;
@@ -71,7 +77,14 @@ export default class EmailHunter {
     this.apiKey = key;
   }
 
-  // Do the http call
+  /**
+   * Call the Hunter.io api internally with specified options
+   * @param  {String} [action=&apos;GET&apos;] The http action to call
+   * @param  {String} type           The api endpoint name
+   * @param  {String} [id=&apos;&apos;]        An optional id number for emails or leads
+   * @param  {Object} [options={}]   The api call params
+   * @param  {Function} [callback=()=&gt;{}}] The callback to run once has done
+   */
   run({ action = &apos;GET&apos;, type, id = &apos;&apos;, options = {}, callback = () =&gt; {} }) {
     // Build the request url
     let query = qs.stringify(options);
@@ -115,102 +128,33 @@ export default class EmailHunter {
   /**
    * The object which contains all the leads methods
    * @see https://hunter.io/api/v2/docs#leads
-   * @return {Object} The leads API methods
+   * @return {Leads} The leads API methods
    */
   get leads() {
-    const self = this;
-    return {
-      /**
-       * Returns all the leads already saved in your account.
-       * The leads are returned in sorted order, with the most recent leads appearing first.
-       * The optional parameters can be combined to filter the results.
-       * @see https://hunter.io/api/v2/docs#list-leads
-       * @param  {object}   options  The leads list optional arguments
-       * @param  {Function} callback The callback to run when operation is over
-       */
-      list: function(options, callback) {
-        return self.run({
-          type: &apos;leads&apos;,
-          options,
-          callback
-        });
-      },
-
-      /**
-       * Retrieves all the fields of a lead.
-       * @see https://hunter.io/api/v2/docs#get-lead
-       * @param  {number}   id       The lead id number
-       * @param  {Function} callback The callback to run when operation is over
-       */
-      retrieve: function(id, callback) {
-        return self.run({
-          type: &apos;leads&apos;,
-          id,
-          callback
-        });
-      },
-
-      /**
-       * Creates a new lead. The parameters must be passed as a JSON hash.
-       * @see https://hunter.io/api/v2/docs#create-lead
-       * @param  {Object}   options  The leads create arguments
-       * @param  {Function} callback The callback to run when operation is over
-       */
-      create: function(options, callback) {
-        return self.run({
-          action: &apos;POST&apos;,
-          type: &apos;leads&apos;,
-          options,
-          callback
-        });
-      },
-
-      /**
-       * Updates an existing lead. The updated values must be passed as a JSON hash.
-       * The fields you can update are the same params you can give when you create a lead.
-       * @see https://hunter.io/api/v2/docs#update-lead
-       * @param  {number}   id       The lead id number
-       * @param  {Object}   options  The fields to update
-       * @param  {Function} callback The callback to run when operation is over
-       */
-      update: function(id, options, callback) {
-        return self.run({
-          action: &apos;PUT&apos;,
-          type: &apos;leads&apos;,
-          id,
-          options,
-          callback
-        });
-      },
-
-      /**
-       * Deletes an existing lead.
-       * @see https://hunter.io/api/v2/docs#delete-lead
-       * @param  {number}   id       The lead id number
-       * @param  {Function} callback The callback to run when operation is over
-       */
-      delete: function(id, callback) {
-        return self.run({
-          action: &apos;DELETE&apos;,
-          type: &apos;leads&apos;,
-          id,
-          callback
-        });
-      }
-    };
+    return new Leads(this);
   }
 
   /**
    * The object which contains all the leads_list methods
-   * @return {Object} The leads_list API methods
+   * @return {LeadsList} The leads_list API methods
    */
-  get leadsList() {}
+  get leadsList() {
+    return new LeadsList(this);
+  }
 
   /**
    * This API endpoint generates the most likely email address from a domain name, a first name and a last name.
    * @param  {Object} options The call options
    * @param  {Function} callback The callback to run when operation is over
    * @see https://hunter.io/api/v2/docs#email-finder
+   * @example
+   * hunter.emailFinder({
+   *  domain: &apos;google.com&apos;,
+   *  first_name: &apos;John&apos;,
+   *  last_name: &apos;Doe&apos;
+   * }, (err, res) =&gt; {
+   *  console.log(res);
+   * })
    */
   emailFinder(options, callback) {
     return this.run({
@@ -225,6 +169,10 @@ export default class EmailHunter {
    * @param  {String|Object} options The email to verify
    * @param  {Function} callback The callback to run when operation is over
    * @see https://hunter.io/api/v2/docs#email-verifier
+   * @example
+   * hunter.emailVerifier(&apos;test@google.com&apos;, (err, res) =&gt; {
+   *  console.log(res);
+   * })
    */
   emailVerifier(email, callback) {
     const options = typeof email === &apos;object&apos; ? email : { email };
@@ -241,6 +189,10 @@ export default class EmailHunter {
    * @param  {String|Object} domain The domain to check
    * @param  {Function} callback The callback to run when operation is over
    * @see https://hunter.io/api/v2/docs#email-count
+   * @example
+   * hunter.emailCount(&apos;google.com&apos;, (err, res) =&gt; {
+   *  console.log(res);
+   * })
    */
   emailCount(domain, callback) {
     const options = typeof domain === &apos;object&apos; ? domain : { domain };
@@ -270,6 +222,10 @@ export default class EmailHunter {
    * This API endpoint enables you to get information regarding your Hunter account at any time.
    * @param  {Function} callback The callback to run when operation is over
    * @see https://hunter.io/api/v2/docs#account
+   * @example
+   * hunter.account((err, res) =&gt; {
+   *  console.log(res);
+   * })
    */
   account(callback) {
     return this.run({

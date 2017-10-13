@@ -959,6 +959,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+// Sub modules
+
+
 var _axios = __webpack_require__(9);
 
 var _axios2 = _interopRequireDefault(_axios);
@@ -966,6 +969,14 @@ var _axios2 = _interopRequireDefault(_axios);
 var _querystring = __webpack_require__(28);
 
 var _querystring2 = _interopRequireDefault(_querystring);
+
+var _leads = __webpack_require__(31);
+
+var _leads2 = _interopRequireDefault(_leads);
+
+var _leads_list = __webpack_require__(32);
+
+var _leads_list2 = _interopRequireDefault(_leads_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1004,7 +1015,14 @@ var EmailHunter = function () {
     this.apiKey = key;
   }
 
-  // Do the http call
+  /**
+   * Call the Hunter.io api internally with specified options
+   * @param  {String} [action='GET'] The http action to call
+   * @param  {String} type           The api endpoint name
+   * @param  {String} [id='']        An optional id number for emails or leads
+   * @param  {Object} [options={}]   The api call params
+   * @param  {Function} [callback=()=>{}}] The callback to run once has done
+   */
 
 
   _createClass(EmailHunter, [{
@@ -1064,7 +1082,7 @@ var EmailHunter = function () {
     /**
      * The object which contains all the leads methods
      * @see https://hunter.io/api/v2/docs#leads
-     * @return {Object} The leads API methods
+     * @return {Leads} The leads API methods
      */
 
   }, {
@@ -1076,6 +1094,14 @@ var EmailHunter = function () {
      * @param  {Object} options The call options
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-finder
+     * @example
+     * hunter.emailFinder({
+     *  domain: 'google.com',
+     *  first_name: 'John',
+     *  last_name: 'Doe'
+     * }, (err, res) => {
+     *  console.log(res);
+     * })
      */
     value: function emailFinder(options, callback) {
       return this.run({
@@ -1090,6 +1116,10 @@ var EmailHunter = function () {
      * @param  {String|Object} options The email to verify
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-verifier
+     * @example
+     * hunter.emailVerifier('test@google.com', (err, res) => {
+     *  console.log(res);
+     * })
      */
 
   }, {
@@ -1109,6 +1139,10 @@ var EmailHunter = function () {
      * @param  {String|Object} domain The domain to check
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-count
+     * @example
+     * hunter.emailCount('google.com', (err, res) => {
+     *  console.log(res);
+     * })
      */
 
   }, {
@@ -1144,6 +1178,10 @@ var EmailHunter = function () {
      * This API endpoint enables you to get information regarding your Hunter account at any time.
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#account
+     * @example
+     * hunter.account((err, res) => {
+     *  console.log(res);
+     * })
      */
 
   }, {
@@ -1157,96 +1195,19 @@ var EmailHunter = function () {
   }, {
     key: 'leads',
     get: function get() {
-      var self = this;
-      return {
-        /**
-         * Returns all the leads already saved in your account.
-         * The leads are returned in sorted order, with the most recent leads appearing first.
-         * The optional parameters can be combined to filter the results.
-         * @see https://hunter.io/api/v2/docs#list-leads
-         * @param  {object}   options  The leads list optional arguments
-         * @param  {Function} callback The callback to run when operation is over
-         */
-        list: function list(options, callback) {
-          return self.run({
-            type: 'leads',
-            options: options,
-            callback: callback
-          });
-        },
-
-        /**
-         * Retrieves all the fields of a lead.
-         * @see https://hunter.io/api/v2/docs#get-lead
-         * @param  {number}   id       The lead id number
-         * @param  {Function} callback The callback to run when operation is over
-         */
-        retrieve: function retrieve(id, callback) {
-          return self.run({
-            type: 'leads',
-            id: id,
-            callback: callback
-          });
-        },
-
-        /**
-         * Creates a new lead. The parameters must be passed as a JSON hash.
-         * @see https://hunter.io/api/v2/docs#create-lead
-         * @param  {Object}   options  The leads create arguments
-         * @param  {Function} callback The callback to run when operation is over
-         */
-        create: function create(options, callback) {
-          return self.run({
-            action: 'POST',
-            type: 'leads',
-            options: options,
-            callback: callback
-          });
-        },
-
-        /**
-         * Updates an existing lead. The updated values must be passed as a JSON hash.
-         * The fields you can update are the same params you can give when you create a lead.
-         * @see https://hunter.io/api/v2/docs#update-lead
-         * @param  {number}   id       The lead id number
-         * @param  {Object}   options  The fields to update
-         * @param  {Function} callback The callback to run when operation is over
-         */
-        update: function update(id, options, callback) {
-          return self.run({
-            action: 'PUT',
-            type: 'leads',
-            id: id,
-            options: options,
-            callback: callback
-          });
-        },
-
-        /**
-         * Deletes an existing lead.
-         * @see https://hunter.io/api/v2/docs#delete-lead
-         * @param  {number}   id       The lead id number
-         * @param  {Function} callback The callback to run when operation is over
-         */
-        delete: function _delete(id, callback) {
-          return self.run({
-            action: 'DELETE',
-            type: 'leads',
-            id: id,
-            callback: callback
-          });
-        }
-      };
+      return new _leads2.default(this);
     }
 
     /**
      * The object which contains all the leads_list methods
-     * @return {Object} The leads_list API methods
+     * @return {LeadsList} The leads_list API methods
      */
 
   }, {
     key: 'leadsList',
-    get: function get() {}
+    get: function get() {
+      return new _leads_list2.default(this);
+    }
   }]);
 
   return EmailHunter;
@@ -2321,6 +2282,305 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * The Leads class can be instanciated only from the main class
+ * it's intended for internal use only and is not exported from the package
+ */
+var Leads = function () {
+  function Leads(parent) {
+    _classCallCheck(this, Leads);
+
+    this.parent = parent;
+  }
+
+  /**
+   * Returns all the leads already saved in your account.
+   * The leads are returned in sorted order, with the most recent leads appearing first.
+   * The optional parameters can be combined to filter the results.
+   * @see https://hunter.io/api/v2/docs#list-leads
+   * @param  {object}   options  The leads list optional arguments
+   * @param  {Function} callback The callback to run when operation is over
+   * @example
+   * hunter.leads.list({}, (err, res) => {
+   *  console.log(res);
+   * })
+   */
+
+
+  _createClass(Leads, [{
+    key: 'list',
+    value: function list(options, callback) {
+      return this.parent.run({
+        type: 'leads',
+        options: options,
+        callback: callback
+      });
+    }
+
+    /**
+     * Retrieves all the fields of a lead.
+     * @see https://hunter.io/api/v2/docs#get-lead
+     * @param  {number}   id       Identifier of the lead.
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leads.retrieve(1, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'retrieve',
+    value: function retrieve(id, callback) {
+      return this.parent.run({
+        type: 'leads',
+        id: id,
+        callback: callback
+      });
+    }
+
+    /**
+     * Creates a new lead. The parameters must be passed as a JSON hash.
+     * @see https://hunter.io/api/v2/docs#create-lead
+     * @param  {Object}   options  The leads create arguments
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leads.create({}, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'create',
+    value: function create(options, callback) {
+      return this.parent.run({
+        action: 'POST',
+        type: 'leads',
+        options: options,
+        callback: callback
+      });
+    }
+
+    /**
+     * Updates an existing lead. The updated values must be passed as a JSON hash.
+     * The fields you can update are the same params you can give when you create a lead.
+     * @see https://hunter.io/api/v2/docs#update-lead
+     * @param  {number}   id       Identifier of the lead.
+     * @param  {Object}   options  The fields to update
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leads.update(1, {
+     *  company: 'New company name'
+     * }, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'update',
+    value: function update(id, options, callback) {
+      return this.parent.run({
+        action: 'PUT',
+        type: 'leads',
+        id: id,
+        options: options,
+        callback: callback
+      });
+    }
+
+    /**
+     * Deletes an existing lead.
+     * @see https://hunter.io/api/v2/docs#delete-lead
+     * @param  {number}   id       Identifier of the lead.
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leads.delete(1, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'delete',
+    value: function _delete(id, callback) {
+      return this.parent.run({
+        action: 'DELETE',
+        type: 'leads',
+        id: id,
+        callback: callback
+      });
+    }
+  }]);
+
+  return Leads;
+}();
+
+exports.default = Leads;
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * The LeadsList class can be instanciated only from the main class
+ * it's intended for internal use only and is not exported from the package
+ */
+var LeadsList = function () {
+  function LeadsList(parent) {
+    _classCallCheck(this, LeadsList);
+
+    this.parent = parent;
+  }
+
+  /**
+   * Returns all the leads lists already saved in your account.
+   * The leads lists are returned in sorted order, with the most recent leads lists appearing first.
+   * @see https://hunter.io/api/docs#list-leads-lists
+   * @param  {object}   options  The leads_list list optional arguments
+   * @param  {Function} callback The callback to run when operation is over
+   * @example
+   * hunter.leadsList.list({
+   *  offset: 0,
+   *  limit: 20
+   * }, (err, res) => {
+   *  console.log(res);
+   * })
+   */
+
+
+  _createClass(LeadsList, [{
+    key: 'list',
+    value: function list(options, callback) {
+      return this.parent.run({
+        type: 'leads_list',
+        options: options,
+        callback: callback
+      });
+    }
+
+    /**
+     * Retrieves all the fields of a leads list.
+     * @see https://hunter.io/api/docs#get-leads-list
+     * @param  {number}   id       Identifier of the leads list.
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leadsList.retrieve(1, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'retrieve',
+    value: function retrieve(id, callback) {
+      return this.parent.run({
+        type: 'leads_list',
+        id: id,
+        callback: callback
+      });
+    }
+
+    /**
+     * Creates a new leads list. The parameters must be passed as a JSON hash.
+     * @see https://hunter.io/api/docs#create-leads-list
+     * @param  {Object}   options  The leads_list create arguments
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leadsList.create({
+     *  name: 'New leads list'
+     * }, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'create',
+    value: function create(options, callback) {
+      return this.parent.run({
+        action: 'POST',
+        type: 'leads_list',
+        options: options,
+        callback: callback
+      });
+    }
+
+    /**
+     * Updates an existing leads list. The updated values must be passed as a JSON hash.
+     * @see https://hunter.io/api/v2/docs#update-leads-list
+     * @param  {number}   id       The lead id number
+     * @param  {Object}   options  The fields to update
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leadsList.update({
+     *  name: 'New leads list name'
+     * }, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'update',
+    value: function update(id, options, callback) {
+      return this.parent.run({
+        action: 'PUT',
+        type: 'leads_list',
+        id: id,
+        options: options,
+        callback: callback
+      });
+    }
+
+    /**
+     * Deletes an existing leads list.
+     * @see https://hunter.io/api/docs#delete-leads-list
+     * @param  {number}   id       Identifier of the leads list.
+     * @param  {Function} callback The callback to run when operation is over
+     * @example
+     * hunter.leadsList.delete(1, (err, res) => {
+     *  console.log(res);
+     * })
+     */
+
+  }, {
+    key: 'delete',
+    value: function _delete(id, callback) {
+      return this.parent.run({
+        action: 'DELETE',
+        type: 'leads_list',
+        id: id,
+        callback: callback
+      });
+    }
+  }]);
+
+  return LeadsList;
+}();
+
+exports.default = LeadsList;
 
 /***/ })
 /******/ ]);
