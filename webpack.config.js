@@ -3,15 +3,34 @@
 const path = require('path');
 const name = 'hunter.io';
 
-module.exports = {
+const serverConf = {
   entry: './lib/index.js',
+  target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `${name}.js`,
-    library: 'hunterio',
-    libraryTarget: 'umd'
+    filename: `${name}.node.js`,
+    library: 'EmailHunter',
+    libraryTarget: 'umd',
+    libraryExport: 'default'
   },
   module: {
     rules: [{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }]
   }
 };
+
+const clientConf = {
+  entry: './lib/index.js',
+  target: 'web',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: `${name}.web.js`,
+    library: 'EmailHunter',
+    libraryTarget: 'umd',
+    libraryExport: 'default'
+  },
+  module: {
+    rules: [{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }]
+  }
+};
+
+module.exports = [serverConf, clientConf];
