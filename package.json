@@ -9,9 +9,10 @@
     "url": ""
   },
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
-  "main": "lib/index.js",
+  "main": "dist/hunter.io.js",
   "keywords": [
     "email-hunter",
     "hunterio"
