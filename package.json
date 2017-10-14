@@ -12,7 +12,7 @@
     "lib",
     "dist"
   ],
-  "main": "dist/hunter.io.js",
+  "main": "dist/hunter.io.node.js",
   "keywords": [
     "email-hunter",
     "hunterio"
