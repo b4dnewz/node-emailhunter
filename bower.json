@@ -1,0 +1,21 @@
+{
+  "name": "hunter.io",
+  "description": "A simple javascript wrapper for Hunter.io API",
+  "main": "dist/hunter.io.web.js",
+  "authors": [
+    "Filippo b4dnewz Conti <filippo@codekraft.it>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "email-hunter",
+    "hunterio"
+  ],
+  "homepage": "https://github.com/b4dnewz/node-emailhunter",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
