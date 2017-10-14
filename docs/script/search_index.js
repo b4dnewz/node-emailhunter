@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
-    "hunter.io~emailhunter",
+    "hunter.io/lib/index.js~emailhunter",
     "class/lib/index.js~EmailHunter.html",
-    "<span>EmailHunter</span> <span class=\"search-result-import-path\">hunter.io</span>",
+    "<span>EmailHunter</span> <span class=\"search-result-import-path\">hunter.io/lib/index.js</span>",
     "class"
   ],
   [
