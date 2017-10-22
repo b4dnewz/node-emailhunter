@@ -1,6 +1,6 @@
 {
   "name": "hunter.io",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A simple javascript wrapper for Hunter.io API",
   "homepage": "https://b4dnewz.github.io/node-emailhunter/",
   "author": {
