@@ -13,6 +13,9 @@
     "dist"
   ],
   "main": "dist/hunter.io.node.js",
+  "bin": {
+    "email-hunter": "./bin/index.js"
+  },
   "keywords": [
     "email-hunter",
     "hunterio"
@@ -85,6 +88,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.0",
+    "commander": "^2.12.2",
     "querystring": "^0.2.0"
   }
 }
