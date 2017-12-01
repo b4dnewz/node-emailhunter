@@ -56,47 +56,51 @@
     "filePath": "lib/index.js",
     "lines": [
       {
-        "lineNumber": 127,
+        "lineNumber": 128,
         "line": "  /**"
       },
       {
-        "lineNumber": 128,
+        "lineNumber": 129,
         "line": "   * This API endpoint allows you to verify the deliverability of an email address."
       },
       {
-        "lineNumber": 129,
+        "lineNumber": 130,
         "line": "   * @param  {String|Object} options The email to verify"
       },
       {
-        "lineNumber": 130,
+        "lineNumber": 131,
         "line": "   * @param  {Function} callback The callback to run when operation is over"
       },
       {
-        "lineNumber": 131,
+        "lineNumber": 132,
         "line": "   * @see https://hunter.io/api/v2/docs#email-verifier"
       },
       {
-        "lineNumber": 132,
-        "line": "   * @example"
-      },
-      {
         "lineNumber": 133,
-        "line": "   * hunter.emailVerifier('test@google.com', (err, res) => {"
+        "line": "   *"
       },
       {
         "lineNumber": 134,
-        "line": "   *  console.log(res);"
+        "line": "   * @example"
       },
       {
         "lineNumber": 135,
-        "line": "   * })"
+        "line": "   * hunter.emailVerifier('test@google.com', (err, res) => {"
       },
       {
         "lineNumber": 136,
-        "line": "   */"
+        "line": "   *  console.log(res);"
       },
       {
         "lineNumber": 137,
+        "line": "   * })"
+      },
+      {
+        "lineNumber": 138,
+        "line": "   */"
+      },
+      {
+        "lineNumber": 139,
         "line": "  emailVerifier(email, callback) {"
       }
     ],

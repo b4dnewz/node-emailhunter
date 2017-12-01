@@ -1322,6 +1322,7 @@ var EmailHunter = function () {
      * @param  {Object} options The call options
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-finder
+     *
      * @example
      * hunter.emailFinder({
      *  domain: 'google.com',
@@ -1344,6 +1345,7 @@ var EmailHunter = function () {
      * @param  {String|Object} options The email to verify
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-verifier
+     *
      * @example
      * hunter.emailVerifier('test@google.com', (err, res) => {
      *  console.log(res);
@@ -1367,6 +1369,7 @@ var EmailHunter = function () {
      * @param  {String|Object} domain The domain to check
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#email-count
+     *
      * @example
      * hunter.emailCount('google.com', (err, res) => {
      *  console.log(res);
@@ -1390,6 +1393,13 @@ var EmailHunter = function () {
      * @param  {Object} options The call options
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#domain-search
+     *
+     * @example
+     * hunter.domainSearch({
+     *  domain: 'example.com',
+     *  company: 'Example Company'
+     * }, (err, result) => { });
+     *
      */
 
   }, {
@@ -1406,6 +1416,7 @@ var EmailHunter = function () {
      * This API endpoint enables you to get information regarding your Hunter account at any time.
      * @param  {Function} callback The callback to run when operation is over
      * @see https://hunter.io/api/v2/docs#account
+     *
      * @example
      * hunter.account((err, res) => {
      *  console.log(res);
