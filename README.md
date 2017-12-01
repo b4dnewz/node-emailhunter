@@ -16,6 +16,9 @@ npm install --save hunter.io
 yarn add hunter.io
 ```
 
+## Documentation
+You can find an online documentation at the url: https://b4dnewz.github.io/node-emailhunter/
+
 ## How to use it
 Import the module and and create an instance of the hunter:
 ```js
