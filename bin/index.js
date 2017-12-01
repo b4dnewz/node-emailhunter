@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const pkg = require('../package.json');
+const { version } = require('../package.json');
+const fs = require('fs');
 const program = require('commander');
 const Hunter = require('../dist/hunter.io.node.js');
 const apiKey = process.env.HUNTERIO_KEY;
@@ -8,11 +9,9 @@ const apiKey = process.env.HUNTERIO_KEY;
 // Hunter object
 let hunter = null;
 
+// Print package banner
 console.log(`
-
-  Email Hunter
-  v.${pkg.version}
-
+  Email Hunter CLI v.${version}
 `);
 
 const printError = err => {
@@ -21,17 +20,92 @@ const printError = err => {
   });
 };
 
+const optionallySaveOutput = (filename, data) => {
+  if (!filename || typeof filename === 'undefined') {
+    return;
+  }
+  filename = typeof filename === 'string' ? filename : `${Date.now()}.json`;
+  fs.writeFile(filename, data, err => {
+    if (err) {
+      console.log(' An error occurred while trying to save output. ');
+      return;
+    }
+    console.log(` File was successfully saved to disk: ${filename} `);
+  });
+};
+
+// Global settings and options
 program
   .name('email-hunter')
-  .version(pkg.version)
-  .description(pkg.description)
-  .option('-k, --key [apikey]', 'Set the Hunter.io API key for the execution.');
+  .version(version)
+  .description('Unofficial command line interface for Hunter.io API.')
+  .option('-k, --key <apikey>', 'Set the Hunter.io API key for the execution.')
+  .option('-o, --output [name]', 'Write the JSON result output to file.');
 
-// Serach emails associated with a given domain
+// Get account information for the current user
 program
-  .command('domain-search [domain]')
+  .command('account')
+  .description('Get information regarding your Hunter account at any time.')
+  .action(() => {
+    hunter = new Hunter(program.key || apiKey);
+    console.log(' Getting account informations: \n');
+    hunter.account((err, results) => {
+      if (err) {
+        return printError(err);
+      }
+
+      // Beautify and print results
+      results = JSON.stringify(results.data, null, 2);
+      console.log(results + '\n');
+      optionallySaveOutput(program.output, results);
+    });
+  });
+
+// Get the emails number count for a given domain
+program
+  .command('count <domain>')
   .description(
-    'You give one domain name and it returns all the email addresses using this domain name found on the internet.'
+    'Know how many email addresses are associated to one domain or one company.'
+  )
+  .action(domain => {
+    hunter = new Hunter(program.key || apiKey);
+    console.log(' Getting domain emails count informations: \n');
+    hunter.emailCount(domain, (err, results) => {
+      if (err) {
+        return printError(err);
+      }
+
+      // Beautify and print results
+      results = JSON.stringify(results.data, null, 2);
+      console.log(results + '\n');
+      optionallySaveOutput(program.output, results);
+    });
+  });
+
+// Verify the deliverability of an email address.
+program
+  .command('verify <email>')
+  .description('Verify the deliverability of a given email address.')
+  .action(email => {
+    hunter = new Hunter(program.key || apiKey);
+    console.log(` Verifing email address deliverability: ${email}": \n`);
+    hunter.emailVerifier(email, (err, results) => {
+      if (err) {
+        return printError(err);
+      }
+
+      // Beautify and print results
+      results = JSON.stringify(results.data, null, 2);
+      console.log(results + '\n');
+      optionallySaveOutput(program.output, results);
+    });
+  });
+
+// Search emails associated with a given domain
+program
+  .command('search <domain>')
+  .description(
+    'Search all the email addresses found on the internet related to this domain.'
   )
   .option(
     '-l, --limit [number]',
@@ -47,40 +121,40 @@ program
       if (err) {
         return printError(err);
       }
-      console.log(JSON.stringify(results.data, null, 2));
+
+      // Beautify and print results
+      results = JSON.stringify(results.data, null, 2);
+      console.log(results + '\n');
+      optionallySaveOutput(program.output, results);
     });
   });
 
-// Get the emails number count for a given domain
+// Find email address by personal informations
 program
-  .command('count [domain]')
-  .description('Know how many email addresses we have for one domain or for one company.')
-  .action(domain => {
-    hunter = new Hunter(program.key || apiKey);
-    console.log(' Getting domain emails count informations: \n');
-    hunter.emailCount(domain, (err, results) => {
-      if (err) {
-        return printError(err);
-      }
-      console.log(JSON.stringify(results.data, null, 2));
-    });
-  });
-
-// Get account information for the current user
-program
-  .command('account')
+  .command('find <domain> <first_name> <last_name>')
   .description(
-    'Get information regarding your Hunter account at any time. This call is free.'
+    'Generates or retrieves the most likely email address from domain name, first name and last name.'
   )
-  .action(() => {
+  .action((domain, first_name, last_name) => {
     hunter = new Hunter(program.key || apiKey);
-    console.log(' Getting account informations: \n');
-    hunter.account((err, results) => {
-      if (err) {
-        return printError(err);
+    console.log(` Finding email for "${first_name} ${last_name}" at "${domain}": \n`);
+    hunter.emailFinder(
+      {
+        domain,
+        first_name,
+        last_name
+      },
+      (err, results) => {
+        if (err) {
+          return printError(err);
+        }
+
+        // Beautify and print results
+        results = JSON.stringify(results.data, null, 2);
+        console.log(results + '\n');
+        optionallySaveOutput(program.output, results);
       }
-      console.log(JSON.stringify(results.data, null, 2));
-    });
+    );
   });
 
 program.parse(process.argv);
