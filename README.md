@@ -1,5 +1,7 @@
 # hunter.io
+
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Known Vulnerabilities][snyk-image]][snyk-url]
+
 > A simple javascript wrapper for Hunter.io API
 
 [![NPM](https://nodei.co/npm/hunter.io.png)](https://npmjs.org/package/hunter.io)
@@ -18,6 +20,14 @@ yarn add hunter.io
 
 ## Documentation
 You can find an online documentation at the url: https://b4dnewz.github.io/node-emailhunter/
+
+## Looking for the cli?
+This package also comes with the __cli-tool__, you simply have to install it globally and you are ready to go.
+```
+npm install -g hunter.io
+yarn global add hunter.io
+```
+For detailed usage information type `email-hunter --help`, it works also with sub-commands.
 
 ## How to use it
 Import the module and and create an instance of the hunter:
