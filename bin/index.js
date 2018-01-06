@@ -53,8 +53,6 @@ program
       if (err) {
         return printError(err);
       }
-
-      // Beautify and print results
       results = JSON.stringify(results.data, null, 2);
       console.log(results + '\n');
       optionallySaveOutput(program.output, results);
@@ -74,8 +72,6 @@ program
       if (err) {
         return printError(err);
       }
-
-      // Beautify and print results
       results = JSON.stringify(results.data, null, 2);
       console.log(results + '\n');
       optionallySaveOutput(program.output, results);
@@ -85,6 +81,7 @@ program
 // Verify the deliverability of an email address.
 program
   .command('verify <email>')
+  .alias('ve')
   .description('Verify the deliverability of a given email address.')
   .action(email => {
     hunter = new Hunter(program.key || apiKey);
@@ -93,8 +90,6 @@ program
       if (err) {
         return printError(err);
       }
-
-      // Beautify and print results
       results = JSON.stringify(results.data, null, 2);
       console.log(results + '\n');
       optionallySaveOutput(program.output, results);
@@ -104,14 +99,12 @@ program
 // Search emails associated with a given domain
 program
   .command('search <domain>')
+  .alias('se')
   .description(
     'Search all the email addresses found on the internet related to this domain.'
   )
-  .option(
-    '-l, --limit [number]',
-    'Specifies the max number of email addresses to return.'
-  )
-  .option('-o, --offset [number]', 'Specifies the number of email addresses to skip.')
+  .option('-l, --limit [number]', 'Limit the number of results to return.', 10)
+  .option('-o, --offset [number]', 'Specifies the number of email addresses to skip.', 0)
   .option('-t, --type [type]', 'Get only personal or generic email addresses.')
   .action((domain, options) => {
     hunter = new Hunter(program.key || apiKey);
@@ -121,8 +114,6 @@ program
       if (err) {
         return printError(err);
       }
-
-      // Beautify and print results
       results = JSON.stringify(results.data, null, 2);
       console.log(results + '\n');
       optionallySaveOutput(program.output, results);
@@ -148,8 +139,6 @@ program
         if (err) {
           return printError(err);
         }
-
-        // Beautify and print results
         results = JSON.stringify(results.data, null, 2);
         console.log(results + '\n');
         optionallySaveOutput(program.output, results);
