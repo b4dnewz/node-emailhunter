@@ -157,4 +157,9 @@ program
     );
   });
 
+// Sub command for leads
+program.command('leads', 'List and manage account related leads.');
+program.command('leads-list', 'List and manage account related leads lists.');
+
+// Parse process args
 program.parse(process.argv);
