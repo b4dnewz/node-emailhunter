@@ -6,7 +6,7 @@
   "author": {
     "name": "b4dnewz",
     "email": "filippo@codekraft.it",
-    "url": ""
+    "url": "https://b4dnewz.github.io/"
   },
   "files": [
     "lib",
@@ -90,6 +90,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "commander": "^2.15.1",
+    "inquirer": "^5.1.0",
     "querystring": "^0.2.0"
   }
 }
