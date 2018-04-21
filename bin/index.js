@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const { version } = require('../package.json');
-const fs = require('fs');
 const program = require('commander');
 const Hunter = require('../dist/hunter.io.node.js');
+const common = require('./common');
 const apiKey = process.env.HUNTERIO_KEY;
 
 // Hunter object
@@ -13,26 +13,6 @@ let hunter = null;
 console.log(`
   Email Hunter CLI v.${version}
 `);
-
-const printError = err => {
-  return err.errors.forEach(e => {
-    console.log(`[${e.code}] ${e.id}: ${e.details}`);
-  });
-};
-
-const optionallySaveOutput = (filename, data) => {
-  if (!filename || typeof filename === 'undefined') {
-    return;
-  }
-  filename = typeof filename === 'string' ? filename : `${Date.now()}.json`;
-  fs.writeFile(filename, data, err => {
-    if (err) {
-      console.log('An error occurred while trying to save output. ');
-      return;
-    }
-    console.log(`File was successfully saved to disk: ${filename} `);
-  });
-};
 
 // Global settings and options
 program
@@ -50,11 +30,10 @@ program
     console.log('Getting account informations: \n');
     hunter.account((err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
-      results = JSON.stringify(results.data, null, 2);
-      console.log(results + '\n');
-      optionallySaveOutput(options.write, results);
+      common.printResponse(results);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
@@ -67,14 +46,13 @@ program
   .option('-w, --write [name]', 'Write the JSON result output to file.')
   .action((domain, options) => {
     hunter = new Hunter(apiKey);
-    console.log('Getting domain emails count informations: \n');
+    console.log(`Getting emails count for: ${domain}\n`);
     hunter.emailCount(domain, (err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
-      results = JSON.stringify(results.data, null, 2);
-      console.log(results + '\n');
-      optionallySaveOutput(options.write, results);
+      common.printResponse(results);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
@@ -86,14 +64,13 @@ program
   .option('-w, --write [name]', 'Write the JSON result output to file.')
   .action((email, options) => {
     hunter = new Hunter(apiKey);
-    console.log(`Verifing email address deliverability: ${email}": \n`);
+    console.log(`Verifing email address deliverability for: ${email}\n`);
     hunter.emailVerifier(email, (err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
-      results = JSON.stringify(results.data, null, 2);
-      console.log(results + '\n');
-      optionallySaveOutput(options.write, results);
+      common.printResponse(results);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
@@ -110,24 +87,21 @@ program
   .option('-t, --type [type]', 'Get only personal or generic email addresses.')
   .action((domain, options) => {
     hunter = new Hunter(apiKey);
-    let { type, offset, limit } = options;
-    console.log(`Running domain search for: ${domain} `);
+    const { type, offset, limit } = options;
+    console.log(`Searching emails for: ${domain}\n`);
     hunter.domainSearch({ domain, type, offset, limit }, (err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
-      results = JSON.stringify(results.data, null, 2);
-      console.log(results + '\n');
-      optionallySaveOutput(options.write, results);
+      common.printResponse(results);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
 // Find email address by personal informations
 program
   .command('find <domain> <first_name> <last_name>')
-  .description(
-    'Generates or retrieves the most likely email address from domain name, first name and last name.'
-  )
+  .description('Generates or retrieves the most likely email address from given fields.')
   .option('-w, --write [name]', 'Write the JSON result output to file.')
   .action((domain, first_name, last_name, options) => {
     hunter = new Hunter(apiKey);
@@ -140,11 +114,10 @@ program
       },
       (err, results) => {
         if (err) {
-          return printError(err);
+          return common.printError(err);
         }
-        results = JSON.stringify(results.data, null, 2);
-        console.log(results + '\n');
-        optionallySaveOutput(options.write, results);
+        common.printResponse(results);
+        common.optionallySaveOutput(options.write, results);
       }
     );
   });
