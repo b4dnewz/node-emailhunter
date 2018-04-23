@@ -1,55 +1,65 @@
 #!/usr/bin/env node
+
 'use strict';
 
 const program = require('commander');
 const inquirer = require('inquirer');
 const Hunter = require('../dist/hunter.io.node.js');
+const common = require('./common');
 const apiKey = process.env.HUNTERIO_KEY;
+
+// Print a single lead details
+const printLead = data => {
+  console.log('LEAD ID:'.padEnd(12), data.id);
+  console.log('EMAIL:'.padEnd(12), data.email);
+  if (data.first_name || data.last_name) {
+    console.log('FULLNAME:'.padEnd(12), data.first_name || '', data.last_name || '');
+  }
+  if (data.confidence_score)
+    console.log('CONFIDENCE:'.padEnd(12), `${data.confidence_score}%`);
+  if (data.website) console.log('WEBSITE:'.padEnd(12), data.website);
+  if (data.notes) console.log('NOTES:'.padEnd(12), data.notes);
+  console.log('');
+};
 
 // Hunter object
 let hunter = null;
 
-const printError = err => {
-  return err.errors.forEach(e => {
-    console.log(` [${e.code}] ${e.id}: ${e.details}`);
-  });
-};
-
 // Ensure proper command name
-program
-  .name('email-hunter leads')
-  .option('-w, --write [name]', 'Write the JSON result output to file.');
+program.name('email-hunter leads');
 
 // List all the account leads
 program
   .command('list')
   .alias('ls')
   .description('List all the leads')
+  .option('-w, --write [name]', 'Write the JSON result output to file.')
   .option('-l, --limit [number]', 'A limit on the number of leads to be returned.', 20)
   .option('-o, --offset [number]', 'The number of leads to skip.', 0)
   .action(options => {
     hunter = new Hunter(apiKey);
-    let { offset, limit } = options;
-
+    const { offset, limit } = options;
     console.log('Getting account leads list: \n');
-    hunter.leads.list({ offset, limit }, (err, results) => {
-      if (err) {
-        return printError(err);
-      }
+    hunter.leads.list(
+      {
+        offset,
+        limit
+      },
+      (err, results) => {
+        if (err) {
+          return common.printError(err);
+        }
 
-      if (results.data.leads.length === 0) {
-        console.log("You don't have any leads.", '\n');
-        return;
-      }
+        if (results.data.leads.length === 0) {
+          console.log("You don't have any leads.", '\n');
+          return;
+        }
 
-      results.data.leads.forEach(r => {
-        console.log('LEAD ID:'.padEnd(12), r.id);
-        console.log('EMAIL:'.padEnd(12), r.email);
-        console.log('FULLNAME:'.padEnd(12), r.first_name, r.last_name);
-        console.log('CONFIDENCE:'.padEnd(12), `${r.confidence_score}%`);
-        console.log('');
-      });
-    });
+        // Print all leads
+        results.data.leads.forEach(printLead);
+        common.optionallySaveOutput(options.write, results);
+      }
+    );
   });
 
 // Get informations for single leads by ID
@@ -57,24 +67,17 @@ program
   .command('retrieve <id>')
   .alias('get')
   .description('Retrieves all the informations of a lead by ID.')
-  .action(id => {
+  .option('-w, --write [name]', 'Write the JSON result output to file.')
+  .action((id, options) => {
     hunter = new Hunter(apiKey);
     console.log('Getting account leads id:', id, '\n');
     hunter.leads.retrieve(id, (err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
 
-      // Print lead details
-      console.log('EMAIL:'.padEnd(12), results.data.email);
-      console.log(
-        'FULLNAME:'.padEnd(12),
-        results.data.first_name,
-        results.data.last_name
-      );
-      console.log('CONFIDENCE:'.padEnd(12), `${results.data.confidence_score}%`);
-      console.log('WEBSITE:'.padEnd(12), results.data.website);
-      console.log('NOTES:'.padEnd(12), results.data.notes);
+      printLead(results.data);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
@@ -91,7 +94,7 @@ program
       console.log('Creating new lead from email:', opts.email);
       hunter.leads.create(opts, (err, results) => {
         if (err) {
-          return printError(err);
+          return common.printError(err);
         }
         console.log('Lead has been created successfully with ID:', results.data.id);
       });
@@ -99,10 +102,12 @@ program
 
     // If email argument was used
     if (email) {
-      return create({ email });
+      return create({
+        email
+      });
     }
 
-    // Ask for arguments
+    // Ask for lead properties
     inquirer
       .prompt([
         {
@@ -137,9 +142,7 @@ program
           message: 'The ID of the list the lead belongs to. (optional)'
         }
       ])
-      .then(answers => {
-        create(answers);
-      });
+      .then(create);
   });
 
 // Delete a lead by ID
@@ -152,7 +155,7 @@ program
     console.log('Deleting lead by ID:', id, '\n');
     hunter.leads.delete(id, err => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
       console.log('The lead has been successfully deleted.');
     });
@@ -166,7 +169,7 @@ program
   .action(id => {
     hunter = new Hunter(apiKey);
 
-    // Ask for arguments
+    // Ask for lead properties
     inquirer
       .prompt([
         {
@@ -206,7 +209,7 @@ program
         console.log('Updating lead values by ID:', id);
         hunter.leads.update(id, answers, err => {
           if (err) {
-            return printError(err);
+            return common.printError(err);
           }
           console.log('Lead has been successfully updated.');
         });

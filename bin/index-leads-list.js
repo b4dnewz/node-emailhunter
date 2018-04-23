@@ -3,18 +3,11 @@
 const program = require('commander');
 const inquirer = require('inquirer');
 const Hunter = require('../dist/hunter.io.node.js');
+const common = require('./common');
 const apiKey = process.env.HUNTERIO_KEY;
 
-// Hunter object
-let hunter = null;
-
-const printError = err => {
-  return err.errors.forEach(e => {
-    console.log(` [${e.code}] ${e.id}: ${e.details}`);
-  });
-};
-
-const printList = data => {
+// Print single lead list result
+const printLeadsList = data => {
   if (data.id) console.log('LIST ID:'.padEnd(12), data.id);
   console.log('LIST NAME:'.padEnd(12), data.name);
   console.log('LEADS COUNT:'.padEnd(12), data.leads_count);
@@ -22,33 +15,35 @@ const printList = data => {
   console.log('');
 };
 
+// Hunter object
+let hunter = null;
+
 // Ensure proper command name
-program
-  .name('email-hunter leads-list')
-  .option('-w, --write [name]', 'Write the JSON result output to file.');
+program.name('email-hunter leads-list');
 
 // List all the account leads
 program
   .command('list')
   .alias('ls')
   .description('List all the leads lists.')
+  .option('-w, --write [name]', 'Write the JSON result output to file.')
   .option('-l, --limit [number]', 'A limit on the number of leads to be returned.', 20)
   .option('-o, --offset [number]', 'The number of leads to skip.', 0)
   .action(options => {
     hunter = new Hunter(apiKey);
-    let { offset, limit } = options;
+    const { offset, limit } = options;
     console.log('Getting account leads list: \n');
     hunter.leadsList.list({ offset, limit }, (err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
       if (results.data.leads_lists.length === 0) {
         console.log("You don't have any leads lists.", '\n');
         return;
       }
 
-      // Print the leads lists
-      results.data.leads_lists.forEach(r => printList(r));
+      results.data.leads_lists.forEach(printLeadsList);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
@@ -57,14 +52,17 @@ program
   .command('retrieve <id>')
   .alias('get')
   .description('Retrieves all the informations of a leads list by ID.')
-  .action(id => {
+  .option('-w, --write [name]', 'Write the JSON result output to file.')
+  .action((id, options) => {
     hunter = new Hunter(apiKey);
     console.log('Getting account leads list by ID:', id, '\n');
     hunter.leadsList.retrieve(id, (err, results) => {
       if (err) {
-        return printError(err);
+        return common.printError(err);
       }
-      printList(results.data);
+
+      printLeadsList(results.data);
+      common.optionallySaveOutput(options.write, results);
     });
   });
 
@@ -80,7 +78,7 @@ program
       console.log('Creating new leads list by name:', opts.name);
       hunter.leadsList.create(opts, (err, results) => {
         if (err) {
-          return printError(err);
+          return common.printError(err);
         }
         console.log('Leads list created successfully with ID:', results.data.list_id);
       });
@@ -108,7 +106,7 @@ program
 
 // Delete a leads-list by ID
 program
-  .command('delete <ids...>')
+  .command('remove <ids...>')
   .alias('rm')
   .description('Delete one or more leads list by ID.')
   .action(ids => {
@@ -117,7 +115,7 @@ program
       console.log('Deleting leads list by ID:', id, '\n');
       hunter.leadsList.delete(id, err => {
         if (err) {
-          return printError(err);
+          return common.printError(err);
         }
         console.log('The leads list has been successfully deleted.');
       });
@@ -149,7 +147,7 @@ program
         console.log('Updating lead list by ID:', id);
         hunter.leadsList.update(id, answers, err => {
           if (err) {
-            return printError(err);
+            return common.printError(err);
           }
           console.log('The leads list has been successfully updated.');
         });
