@@ -12,9 +12,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "hunter.io/lib/leads_list.js~leadslist",
-    "class/lib/leads_list.js~LeadsList.html",
-    "<span>LeadsList</span> <span class=\"search-result-import-path\">hunter.io/lib/leads_list.js</span>",
+    "hunter.io/lib/leads_lists.js~leadslist",
+    "class/lib/leads_lists.js~LeadsList.html",
+    "<span>LeadsList</span> <span class=\"search-result-import-path\">hunter.io/lib/leads_lists.js</span>",
     "class"
   ],
   [
@@ -414,51 +414,51 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/leads_list.js",
-    "file/lib/leads_list.js.html",
-    "lib/leads_list.js",
+    "lib/leads_lists.js",
+    "file/lib/leads_lists.js.html",
+    "lib/leads_lists.js",
     "file"
   ],
   [
-    "lib/leads_list.js~leadslist#constructor",
-    "class/lib/leads_list.js~LeadsList.html#instance-constructor-constructor",
-    "lib/leads_list.js~LeadsList#constructor",
+    "lib/leads_lists.js~leadslist#constructor",
+    "class/lib/leads_lists.js~LeadsList.html#instance-constructor-constructor",
+    "lib/leads_lists.js~LeadsList#constructor",
     "method"
   ],
   [
-    "lib/leads_list.js~leadslist#create",
-    "class/lib/leads_list.js~LeadsList.html#instance-method-create",
-    "lib/leads_list.js~LeadsList#create",
+    "lib/leads_lists.js~leadslist#create",
+    "class/lib/leads_lists.js~LeadsList.html#instance-method-create",
+    "lib/leads_lists.js~LeadsList#create",
     "method"
   ],
   [
-    "lib/leads_list.js~leadslist#delete",
-    "class/lib/leads_list.js~LeadsList.html#instance-method-delete",
-    "lib/leads_list.js~LeadsList#delete",
+    "lib/leads_lists.js~leadslist#delete",
+    "class/lib/leads_lists.js~LeadsList.html#instance-method-delete",
+    "lib/leads_lists.js~LeadsList#delete",
     "method"
   ],
   [
-    "lib/leads_list.js~leadslist#list",
-    "class/lib/leads_list.js~LeadsList.html#instance-method-list",
-    "lib/leads_list.js~LeadsList#list",
+    "lib/leads_lists.js~leadslist#list",
+    "class/lib/leads_lists.js~LeadsList.html#instance-method-list",
+    "lib/leads_lists.js~LeadsList#list",
     "method"
   ],
   [
-    "lib/leads_list.js~leadslist#parent",
-    "class/lib/leads_list.js~LeadsList.html#instance-member-parent",
-    "lib/leads_list.js~LeadsList#parent",
+    "lib/leads_lists.js~leadslist#parent",
+    "class/lib/leads_lists.js~LeadsList.html#instance-member-parent",
+    "lib/leads_lists.js~LeadsList#parent",
     "member"
   ],
   [
-    "lib/leads_list.js~leadslist#retrieve",
-    "class/lib/leads_list.js~LeadsList.html#instance-method-retrieve",
-    "lib/leads_list.js~LeadsList#retrieve",
+    "lib/leads_lists.js~leadslist#retrieve",
+    "class/lib/leads_lists.js~LeadsList.html#instance-method-retrieve",
+    "lib/leads_lists.js~LeadsList#retrieve",
     "method"
   ],
   [
-    "lib/leads_list.js~leadslist#update",
-    "class/lib/leads_list.js~LeadsList.html#instance-method-update",
-    "lib/leads_list.js~LeadsList#update",
+    "lib/leads_lists.js~leadslist#update",
+    "class/lib/leads_lists.js~LeadsList.html#instance-method-update",
+    "lib/leads_lists.js~LeadsList#update",
     "method"
   ]
 ]

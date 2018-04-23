@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">lib/leads.js | hunter.io</title>
+  <title data-ice="title">lib/leads_lists.js | hunter.io</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -36,83 +36,86 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">lib/leads.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">lib/leads_lists.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * The Leads class can be instanciated only from the main class
+ * The LeadsList class can be instanciated only from the main class
  * it&apos;s intended for internal use only and is not exported from the package
  */
-export default class Leads {
+export default class LeadsList {
   constructor(parent) {
     this.parent = parent;
   }
 
   /**
-   * Returns all the leads already saved in your account.
-   * The leads are returned in sorted order, with the most recent leads appearing first.
-   * The optional parameters can be combined to filter the results.
-   * @see https://hunter.io/api/v2/docs#list-leads
-   * @param  {object}   options  The leads list optional arguments
+   * Returns all the leads lists already saved in your account.
+   * The leads lists are returned in sorted order, with the most recent leads lists appearing first.
+   * @see https://hunter.io/api/docs#list-leads-lists
+   * @param  {object}   options  The leads_lists list optional arguments
    * @param  {Function} callback The callback to run when operation is over
    * @example
-   * hunter.leads.list({}, (err, res) =&gt; {
+   * hunter.leadsList.list({
+   *  offset: 0,
+   *  limit: 20
+   * }, (err, res) =&gt; {
    *  console.log(res);
    * })
    */
   list(options, callback) {
     return this.parent.run({
-      type: &apos;leads&apos;,
+      type: &apos;leads_lists&apos;,
       options,
       callback
     });
   }
 
   /**
-   * Retrieves all the fields of a lead.
-   * @see https://hunter.io/api/v2/docs#get-lead
-   * @param  {number}   id       Identifier of the lead.
+   * Retrieves all the fields of a leads list.
+   * @see https://hunter.io/api/docs#get-leads-list
+   * @param  {number}   id       Identifier of the leads list.
    * @param  {Function} callback The callback to run when operation is over
    * @example
-   * hunter.leads.retrieve(1, (err, res) =&gt; {
+   * hunter.leadsList.retrieve(1, (err, res) =&gt; {
    *  console.log(res);
    * })
    */
   retrieve(id, callback) {
     return this.parent.run({
-      type: &apos;leads&apos;,
+      type: &apos;leads_lists&apos;,
       id,
       callback
     });
   }
 
   /**
-   * Creates a new lead. The parameters must be passed as a JSON hash.
-   * @see https://hunter.io/api/v2/docs#create-lead
-   * @param  {Object}   options  The leads create arguments
+   * Creates a new leads list. The parameters must be passed as a JSON hash.
+   * @see https://hunter.io/api/docs#create-leads-list
+   * @param  {Object}   options  The leads_lists create arguments
    * @param  {Function} callback The callback to run when operation is over
    * @example
-   * hunter.leads.create({}, (err, res) =&gt; {
+   * hunter.leadsList.create({
+   *  name: &apos;New leads list&apos;
+   * }, (err, res) =&gt; {
    *  console.log(res);
    * })
    */
   create(options, callback) {
     return this.parent.run({
       action: &apos;POST&apos;,
-      type: &apos;leads&apos;,
+      type: &apos;leads_lists&apos;,
       options,
       callback
     });
   }
 
   /**
-   * Updates an existing lead. The updated values must be passed as a JSON hash.
-   * The fields you can update are the same params you can give when you create a lead.
-   * @see https://hunter.io/api/v2/docs#update-lead
-   * @param  {number}   id       Identifier of the lead.
+   * Updates an existing leads list. The updated values must be passed as a JSON hash.
+   * @see https://hunter.io/api/v2/docs#update-leads-list
+   * @param  {number}   id       The lead id number
    * @param  {Object}   options  The fields to update
    * @param  {Function} callback The callback to run when operation is over
    * @example
-   * hunter.leads.update(1, {
-   *  company: &apos;New company name&apos;
+   * hunter.leadsList.update({
+   *  name: &apos;New leads list name&apos;
    * }, (err, res) =&gt; {
    *  console.log(res);
    * })
@@ -120,7 +123,7 @@ export default class Leads {
   update(id, options, callback) {
     return this.parent.run({
       action: &apos;PUT&apos;,
-      type: &apos;leads&apos;,
+      type: &apos;leads_lists&apos;,
       id,
       options,
       callback
@@ -128,19 +131,19 @@ export default class Leads {
   }
 
   /**
-   * Deletes an existing lead.
-   * @see https://hunter.io/api/v2/docs#delete-lead
-   * @param  {number}   id       Identifier of the lead.
+   * Deletes an existing leads list.
+   * @see https://hunter.io/api/docs#delete-leads-list
+   * @param  {number}   id       Identifier of the leads list.
    * @param  {Function} callback The callback to run when operation is over
    * @example
-   * hunter.leads.delete(1, (err, res) =&gt; {
+   * hunter.leadsList.delete(1, (err, res) =&gt; {
    *  console.log(res);
    * })
    */
   delete(id, callback) {
     return this.parent.run({
       action: &apos;DELETE&apos;,
-      type: &apos;leads&apos;,
+      type: &apos;leads_lists&apos;,
       id,
       callback
     });
