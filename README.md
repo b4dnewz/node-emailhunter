@@ -27,9 +27,9 @@ This package also comes with the __cli-tool__, you simply have to install it glo
 npm install -g hunter.io
 yarn global add hunter.io
 ```
-For detailed usage information type `email-hunter --help`, it works also with sub-commands.
+For detailed usage information type `email-hunter --help`, it works also with sub-commands es: `email-hunter leads --help`.
 
-If you want to use the cli in a practical way you should set an environment variable called `HUNTERIO_KEY` with your private API key and the command will use it, otherwise you can always specify it run time with the `-k, --key` option.
+In order to use the cli you __must__ set an environment variable called `HUNTERIO_KEY` with your private API key, otherwise it will fail for most of the endpoints.
 
 ## How to use it
 Import the module and and create an instance of the hunter:

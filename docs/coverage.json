@@ -20,7 +20,7 @@
         7
       ]
     },
-    "lib/leads_list.js": {
+    "lib/leads_lists.js": {
       "expectCount": 8,
       "actualCount": 6,
       "undocumentLines": [
