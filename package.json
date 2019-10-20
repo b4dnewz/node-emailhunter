@@ -1,6 +1,6 @@
 {
   "name": "hunter.io",
-  "version": "0.2.7",
+  "version": "0.3.0-beta.0",
   "description": "An unofficial NodeJs client for Hunter.io API service",
   "homepage": "https://b4dnewz.github.io/node-emailhunter/",
   "author": {
