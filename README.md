@@ -1,8 +1,8 @@
 # hunter.io
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Known Vulnerabilities][snyk-image]][snyk-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
-> A simple javascript wrapper for Hunter.io API
+> An unofficial NodeJs client for Hunter.io API
 
 [![NPM](https://nodei.co/npm/hunter.io.png)](https://npmjs.org/package/hunter.io)
 
@@ -14,25 +14,36 @@ The module is distributed through npm (node package manager) and yast, it can be
 installed using:
 
 ```
-npm install --save hunter.io
-yarn add hunter.io
+npm install hunter.io
 ```
 
 ## Documentation
-You can find an online documentation at the url: https://b4dnewz.github.io/node-emailhunter/
 
-## Looking for the cli?
-This package also comes with the __cli-tool__, you simply have to install it globally and you are ready to go.
+This project provides an additional documentation automatically generated with [typedoc](https://github.com/TypeStrong/typedoc) and based on the original documentation, you can find it at https://b4dnewz.github.io/node-emailhunter/
+
+## Looking for the cli tool?
+
+This package also comes with a binary script which include the cli version of this module, you simply have to install it globally and you are ready to go.
+
 ```
 npm install -g hunter.io
-yarn global add hunter.io
 ```
-For detailed usage information type `email-hunter --help`, it works also with sub-commands es: `email-hunter leads --help`.
 
-In order to use the cli you __must__ set an environment variable called `HUNTERIO_KEY` with your private API key, otherwise it will fail for most of the endpoints.
+The package will register `email-hunter` command, which is built using [commanderjs](https://github.com/tj/commander.js) and provides automatic generated usage documentation for options and sub-commands.
 
-## How to use it
+```
+$ email-hunter --help
+$ email-hunter <command> --help
+```
+
+In order to use the cli you __must__ use a valid Hunter.io API key.
+
+You can set it in two ways, one is with command options, another is using environment variables, in particular a variable called `HUNTERIO_KEY` with your private API key, otherwise if not specified, most of the endpoints will fail since requires authentication.
+
+## Getting started
+
 Import the module and and create an instance of the hunter:
+
 ```js
 import EmailHunter from 'hunter.io';
 const hunter = new EmailHunter('YOUR API KEY');
@@ -41,6 +52,9 @@ const hunter = new EmailHunter('YOUR API KEY');
 __Note__: You can get the Hunter.io API key in your dashboard: https://hunter.io/api_keys
 
 ## Methods
+
+The project is TypeScript based and it comes with declaration files, every method signature is well described and can also be found in the [online documentation](https://b4dnewz.github.io/node-emailhunter/).
+
 * __domainSearch__: You give one domain name and it returns all the email addresses using this domain name found on the internet.
 * __emailFinder__: This API endpoint generates the most likely email address from a domain name, a first name and a last name.
 * __emailVerifier__: This API endpoint allows you to verify the deliverability of an email address.
@@ -62,74 +76,21 @@ __Note__: You can get the Hunter.io API key in your dashboard: https://hunter.io
   * __update__: Updates an existing leads list.
   * __delete__: Deletes an existing leads list.
 
----
+All the methods supports both callback style functions or promises, so for example to get your profile informations you can do:
 
-### Domain Search
-Returns all the email addresses found using one given company name, with our sources.
 ```js
-hunter.domainSearch({
-  domain: 'example.com',
-  company: 'Example Company'
-}, (err, result) => { });
-```
-
-### Email Finder
-It find the most likely email address from a domain name, a first name and a last.
-```js
-hunter.emailFinder({
-  full_name: 'John Doe',
-  domain: 'example.com',
-  company: 'Example Company'
-}, (err, result) => { });
-```
-
-### Email Verifier
-Allows you to verify the deliverability of an email address.
-```js
-hunter.emailVerifier('test@mail.com', (err, result) => { });
-
-hunter.emailVerifier({
-  email: 'test@mail.com'
-}, (err, result) => { });
-```
-
-### Email Count
-Allows you to know how many email addresses we have for one domain.
-```js
-hunter.emailCount('example.com', (err, result) => { });
-
-hunter.emailCount({
-  domain: 'example.com'
-}, (err, result) => { });
-```
-
-### Account information
-Allows you to get information regarding your Email Hunter account at any time.
-```js
+// with callback
 hunter.account((err, result) => { });
-```
 
-### List Leads
-Returns all the leads already saved in your account. The leads are returned in sorted order, with the most recent leads appearing first. The optional parameters can be combined to filter the results.
-```js
-hunter.leads.list({
-  limit: 20
-}, (err, result) => { });
-```
+// with promises
+const data = await hunter.account()
 
-### Create a new Lead
-Creates a new lead. The parameters must be passed as a JSON hash.
-```js
-hunter.leads.create({
-  first_name: 'Filippo',
-  last_name: 'Conti'
-}, (err, result) => { });
+hunter.account().then(data => {
+  
+})
 ```
 
 ---
-
-## License
-The __hunter.io__ is released under the MIT License.
 
 ## Contributing
 
@@ -140,13 +101,20 @@ The __hunter.io__ is released under the MIT License.
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create a new Pull Request
 
+---
+
+## License
+The __hunter.io__ is released under the [MIT License](./LICENSE).
+
+
 [npm-image]: https://badge.fury.io/js/hunter.io.svg
 [npm-url]: https://npmjs.org/package/hunter.io
+
 [travis-image]: https://travis-ci.org/b4dnewz/node-emailhunter.svg?branch=master
 [travis-url]: https://travis-ci.org/b4dnewz/node-emailhunter
+
 [daviddm-image]: https://david-dm.org/b4dnewz/node-emailhunter.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/b4dnewz/node-emailhunter
+
 [coveralls-image]: https://coveralls.io/repos/b4dnewz/node-emailhunter/badge.svg
 [coveralls-url]: https://coveralls.io/r/b4dnewz/node-emailhunter
-[snyk-image]: https://snyk.io/test/github/b4dnewz/node-emailhunter/badge.svg
-[snyk-url]: https://snyk.io/test/github/b4dnewz/node-emailhunter

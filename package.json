@@ -1,7 +1,7 @@
 {
   "name": "hunter.io",
   "version": "0.2.7",
-  "description": "A simple javascript wrapper for Hunter.io API",
+  "description": "An unofficial NodeJs client for Hunter.io API service",
   "homepage": "https://b4dnewz.github.io/node-emailhunter/",
   "author": {
     "name": "b4dnewz",
@@ -9,42 +9,47 @@
     "url": "https://b4dnewz.github.io/"
   },
   "files": [
-    "lib",
-    "bin"
+    "lib"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {
-    "email-hunter": "./bin/index.js"
+    "email-hunter": "./lib/bin/index.js"
   },
   "keywords": [
     "email-hunter",
+    "email-finder",
+    "email-search",
     "hunterio",
-    "cli-utils"
+    "node-client",
+    "cli-utils",
+    "osint",
+    "information-gathering"
   ],
   "scripts": {
     "pretest": "npm run lint",
     "lint": "tslint -p . --fix",
     "test": "jest --coverage",
     "prebuild": "typedoc src",
-    "build": "tsc",
-    "updatedocs": "git push origin `git subtree split --prefix docs master`:gh-pages --force"
+    "build": "tsc"
   },
   "repository": "b4dnewz/node-emailhunter",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
-    "commander": "^2.15.1",
-    "inquirer": "^5.1.0"
+    "commander": "^3.0.2",
+    "inquirer": "^5.1.0",
+    "update-notifier": "^3.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/nock": "^10.0.3",
-    "@types/node": "^12.7.4",
+    "@types/jest": "^24.0.19",
+    "@types/nock": "^11.1.0",
+    "@types/node": "^12.11.1",
     "coveralls": "^3.0.0",
     "jest": "^24.9.0",
     "nock": "^11.3.3",
     "ts-jest": "^24.0.2",
+    "ts-node": "^8.4.1",
     "tslint": "^5.18.0",
     "typedoc": "^0.15.0",
     "typescript": "^3.5.3"
