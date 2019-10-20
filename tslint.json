@@ -4,6 +4,9 @@
     "tslint:recommended"
   ],
   "jsRules": {},
-  "rules": {},
+  "rules": {
+    "variable-name": false,
+    "no-var-requires": false
+  },
   "rulesDirectory": []
 }

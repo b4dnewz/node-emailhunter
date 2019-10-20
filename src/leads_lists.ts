@@ -1,4 +1,5 @@
 import EmailHunter from "./index";
+import { CallbackFunction, ICreateLeadsListOptions, IListOptions } from "./interfaces";
 
 /**
  * The LeadsList class can be instanciated only from the main class
@@ -17,13 +18,7 @@ export default class LeadsList {
    * The leads lists are returned in sorted order, with the most recent leads lists appearing first.
    *
    * @see https://hunter.io/api/docs#list-leads-lists
-   * @example
-   * hunter.leadsList.list({
-   *  offset: 0,
-   *  limit: 20
-   * }, (err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
   public async list(options: IListOptions, callback?: CallbackFunction) {
     return this.parent.run({
@@ -37,10 +32,7 @@ export default class LeadsList {
    * Retrieves all the fields of a leads list.
    *
    * @see https://hunter.io/api/docs#get-leads-list
-   * @example
-   * hunter.leadsList.retrieve(1, (err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
   public async retrieve(id: number, callback?: CallbackFunction) {
     return this.parent.run({
@@ -54,14 +46,9 @@ export default class LeadsList {
    * Creates a new leads list. The parameters must be passed as a JSON hash.
    *
    * @see https://hunter.io/api/docs#create-leads-list
-   * @example
-   * hunter.leadsList.create({
-   *  name: 'New leads list'
-   * }, (err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
-  public async create(options: ICreateOptions, callback?: CallbackFunction) {
+  public async create(options: ICreateLeadsListOptions, callback?: CallbackFunction) {
     return this.parent.run({
       action: "POST",
       callback,
@@ -74,14 +61,9 @@ export default class LeadsList {
    * Updates an existing leads list. The updated values must be passed as a JSON hash.
    *
    * @see https://hunter.io/api/v2/docs#update-leads-list
-   * @example
-   * hunter.leadsList.update({
-   *  name: 'New leads list name'
-   * }, (err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
-  public async update(id: number, options: ICreateOptions, callback?: CallbackFunction) {
+  public async update(id: number, options: ICreateLeadsListOptions, callback?: CallbackFunction) {
     return this.parent.run({
       action: "PUT",
       callback,
@@ -95,10 +77,7 @@ export default class LeadsList {
    * Deletes an existing leads list.
    *
    * @see https://hunter.io/api/docs#delete-leads-list
-   * @example
-   * hunter.leadsList.delete(1, (err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
   public async delete(id: number, callback?: CallbackFunction) {
     return this.parent.run({

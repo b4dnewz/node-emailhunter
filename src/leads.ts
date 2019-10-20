@@ -1,4 +1,5 @@
 import EmailHunter from "./index";
+import { CallbackFunction, ICreateLeadsOptions, IListLeadsOptions } from "./interfaces";
 
 /**
  * The Leads class can be instanciated only from the main class
@@ -24,7 +25,7 @@ export default class Leads {
    *  console.log(res);
    * })
    */
-  public async list(options: IListOptions, callback?: CallbackFunction) {
+  public async list(options: IListLeadsOptions, callback?: CallbackFunction) {
     return this.parent.run({
       callback,
       options,
@@ -60,7 +61,7 @@ export default class Leads {
    *  console.log(res);
    * })
    */
-  public async create(options: ICreateLeadOptions, callback?: CallbackFunction) {
+  public async create(options: ICreateLeadsOptions, callback?: CallbackFunction) {
     return this.parent.run({
       action: "POST",
       callback,

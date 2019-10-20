@@ -1,6 +1,7 @@
-import axios, {AxiosInstance, AxiosResponse} from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 import qs from "querystring";
 
+import { CallbackFunction, DomainSearchOptions, EmailCountOptions, EmailFinderOptions } from "./interfaces";
 import Leads from "./leads";
 import LeadsList from "./leads_lists";
 
@@ -39,14 +40,6 @@ export default class EmailHunter {
    * This API endpoint generates the most likely email address from a domain name, a first name and a last name.
    *
    * @see https://hunter.io/api/v2/docs#email-finder
-   * @example
-   * hunter.emailFinder({
-   *  domain: 'google.com',
-   *  first_name: 'John',
-   *  last_name: 'Doe'
-   * }, (err, res) => {
-   *  console.log(res);
-   * })
    */
   public emailFinder(options: EmailFinderOptions, callback?: CallbackFunction) {
     return this.run({
@@ -59,15 +52,11 @@ export default class EmailHunter {
   /**
    * This API endpoint allows you to verify the deliverability of an email address.
    *
-   * @example
-   * hunter.emailVerifier('test@google.com', (err, res) => {
-   *  console.log(res);
-   * })
    */
   public emailVerifier(email: string, callback?: CallbackFunction) {
     return this.run({
       callback,
-      options: {email},
+      options: { email },
       type: "email-verifier",
     });
   }
@@ -77,10 +66,7 @@ export default class EmailHunter {
    * It's free and doesn't require authentication.
    *
    * @see https://hunter.io/api/v2/docs#email-count
-   * @example
-   * hunter.emailCount('google.com', (err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
   public emailCount(domain: string | EmailCountOptions, callback?: CallbackFunction) {
     const options = typeof domain === "object" ? domain : { domain };
@@ -96,11 +82,6 @@ export default class EmailHunter {
    * You give one domain name and it returns all the email addresses using this domain name found on the internet.
    *
    * @see https://hunter.io/api/v2/docs#domain-search
-   * @example
-   * hunter.domainSearch({
-   *  domain: 'example.com',
-   *  company: 'Example Company'
-   * }, (err, result) => { });
    *
    */
   public domainSearch(options: DomainSearchOptions, callback?: CallbackFunction) {
@@ -115,10 +96,7 @@ export default class EmailHunter {
    * This API endpoint enables you to get information regarding your Hunter account at any time.
    *
    * @see https://hunter.io/api/v2/docs#account
-   * @example
-   * hunter.account((err, res) => {
-   *  console.log(res);
-   * })
+   *
    */
   public account(callback?: CallbackFunction) {
     return this.run({
