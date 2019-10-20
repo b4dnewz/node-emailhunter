@@ -7,35 +7,24 @@ import inquirer from "inquirer";
 import EmailHunter from "../index";
 import { handleResponse } from "./common";
 
-const apiKey = process.env.HUNTERIO_KEY;
-
-// Print single lead list result
-const printLeadsList = (data) => {
-  if (data.id) { console.log("LIST ID:".padEnd(12), data.id); }
-  console.log("LIST NAME:".padEnd(12), data.name);
-  console.log("LEADS COUNT:".padEnd(12), data.leads_count);
-  if (data.team_id) { console.log("TEAM ID:".padEnd(12), data.team_id); }
-  console.log("");
-};
-
 let hunter: EmailHunter;
 
 // Ensure proper command name
 program
   .name("email-hunter leads-list")
-  .description("Saving and managing leads lists.");
+  .description("Saving and managing leads lists.")
+  .option("--api-key <key>", "Set the Hunter.io API key", process.env.HUNTERIO_KEY);
 
 // List all the account leads
 program
   .command("list")
   .alias("ls")
   .description("List all the leads lists.")
-  .option("-w, --write [name]", "Write the JSON result output to file.")
   .option("-l, --limit [number]", "A limit on the number of leads to be returned.", 20)
   .option("-o, --offset [number]", "The number of leads to skip.", 0)
   .action((options) => {
+    const { apiKey, offset, limit } = options;
     hunter = new EmailHunter(apiKey);
-    const { offset, limit } = options;
     hunter.leadsList.list({ offset, limit }, handleResponse);
   });
 
@@ -44,8 +33,7 @@ program
   .command("retrieve <id>")
   .alias("get")
   .description("Retrieves all the informations of a leads list by ID.")
-  .option("-w, --write [name]", "Write the JSON result output to file.")
-  .action((id, options) => {
+  .action((id, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
     hunter.leadsList.retrieve(id, handleResponse);
   });
@@ -55,7 +43,7 @@ program
   .command("create [name]")
   .alias("new")
   .description("Creates a new leads list.")
-  .action((name) => {
+  .action((name, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
 
     function create(opts) {
@@ -86,7 +74,7 @@ program
   .command("remove <ids...>")
   .alias("rm")
   .description("Delete one or more leads list by ID.")
-  .action((ids) => {
+  .action((ids, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
     ids.forEach((id) => {
       hunter.leadsList.delete(id, handleResponse);
@@ -98,7 +86,7 @@ program
   .command("update <id>")
   .alias("up")
   .description("Update the leads list informations by name.")
-  .action((id) => {
+  .action((id, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
     inquirer
       .prompt([

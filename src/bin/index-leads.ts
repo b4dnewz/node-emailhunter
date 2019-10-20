@@ -7,28 +7,12 @@ import inquirer from "inquirer";
 import EmailHunter from "../index";
 import { handleResponse } from "./common";
 
-const apiKey = process.env.HUNTERIO_KEY;
-
-// Print a single lead details
-const printLead = (data) => {
-  console.log("LEAD ID:".padEnd(12), data.id);
-  console.log("EMAIL:".padEnd(12), data.email);
-  if (data.first_name || data.last_name) {
-    console.log("FULLNAME:".padEnd(12), data.first_name || "", data.last_name || "");
-  }
-  if (data.confidence_score) {
-    console.log("CONFIDENCE:".padEnd(12), `${data.confidence_score}%`);
-  }
-  if (data.website) { console.log("WEBSITE:".padEnd(12), data.website); }
-  if (data.notes) { console.log("NOTES:".padEnd(12), data.notes); }
-  console.log("");
-};
-
 let hunter: EmailHunter;
 
 program
   .name("email-hunter leads")
-  .description("Saving and managing leads");
+  .description("Saving and managing leads")
+  .option("--api-key <key>", "Set the Hunter.io API key", process.env.HUNTERIO_KEY);
 
 /**
  * Returns all the leads already saved in your account.
@@ -41,9 +25,9 @@ program
   .description("List all the leads")
   .option("-l, --limit [number]", "A limit on the number of leads to be returned.", 20)
   .option("-o, --offset [number]", "The number of leads to skip.", 0)
-  .action((options) => {
+  .action(({ options }) => {
+    const { apiKey, offset, limit } = options;
     hunter = new EmailHunter(apiKey);
-    const { offset, limit } = options;
     hunter.leads.list(
       {
         limit,
@@ -61,7 +45,7 @@ program
   .command("retrieve <id>")
   .alias("get")
   .description("Retrieves all the informations of a lead by ID.")
-  .action((id, options) => {
+  .action((id, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
     hunter.leads.retrieve(id, handleResponse);
   });
@@ -74,7 +58,7 @@ program
   .command("create [email]")
   .alias("new")
   .description("Creates a new lead.")
-  .action((email) => {
+  .action((email, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
 
     function create(opts) {
@@ -134,7 +118,7 @@ program
   .command("delete <id>")
   .alias("rm")
   .description("Delete a lead by ID.")
-  .action((id) => {
+  .action((id, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
     hunter.leads.delete(id, handleResponse);
   });
@@ -148,7 +132,7 @@ program
   .command("update <id>")
   .alias("up")
   .description("Update the lead informations by ID.")
-  .action((id) => {
+  .action((id, { apiKey }) => {
     hunter = new EmailHunter(apiKey);
 
     // Ask for lead properties
