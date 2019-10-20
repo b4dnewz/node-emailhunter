@@ -40,6 +40,14 @@ export default class EmailHunter {
    * This API endpoint generates the most likely email address from a domain name, a first name and a last name.
    *
    * @see https://hunter.io/api/v2/docs#email-finder
+   * @example
+   * ```typescript
+   *  await hunter.emailFinder({
+   *    domain: "example.com",
+   *    first_name: "John",
+   *    last_name: "Doe",
+   *  })
+   * ```
    */
   public emailFinder(options: EmailFinderOptions, callback?: CallbackFunction) {
     return this.run({
@@ -51,6 +59,12 @@ export default class EmailHunter {
 
   /**
    * This API endpoint allows you to verify the deliverability of an email address.
+   *
+   * @see https://hunter.io/api/v2/docs#email-verifier
+   * @example
+   * ```typescript
+   *  await hunter.emailVerifier("john.doe@example.com")
+   * ```
    *
    */
   public emailVerifier(email: string, callback?: CallbackFunction) {
@@ -66,6 +80,14 @@ export default class EmailHunter {
    * It's free and doesn't require authentication.
    *
    * @see https://hunter.io/api/v2/docs#email-count
+   * @example
+   * ```typescript
+   *  await hunter.emailCount("example.com")
+   *  await hunter.emailCount({
+   *    domain: "example.com",
+   *    type: "personal"
+   *  })
+   * ```
    *
    */
   public emailCount(domain: string | EmailCountOptions, callback?: CallbackFunction) {
@@ -82,6 +104,12 @@ export default class EmailHunter {
    * You give one domain name and it returns all the email addresses using this domain name found on the internet.
    *
    * @see https://hunter.io/api/v2/docs#domain-search
+   * @example
+   * ```typescript
+   *  await hunter.domainSearch({
+   *    domain: "example.com"
+   *  })
+   * ```
    *
    */
   public domainSearch(options: DomainSearchOptions, callback?: CallbackFunction) {
@@ -96,6 +124,10 @@ export default class EmailHunter {
    * This API endpoint enables you to get information regarding your Hunter account at any time.
    *
    * @see https://hunter.io/api/v2/docs#account
+   * @example
+   * ```typescript
+   *  await hunter.account()
+   * ```
    *
    */
   public account(callback?: CallbackFunction) {
@@ -106,7 +138,8 @@ export default class EmailHunter {
   }
 
   /**
-   * Call the Hunter.io api internally with specified options
+   * Call the Hunter.io api internally with specified options.
+   * This method is not supposed to use directly.
    */
   public async run({
     action = "GET",

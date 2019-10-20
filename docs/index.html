@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>hunter.io</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">hunter.io</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> hunter.io</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#hunterio" id="hunterio" style="color: inherit; text-decoration: none;">
+					<h1>hunter.io</h1>
+				</a>
+				<p><a href="https://npmjs.org/package/hunter.io"><img src="https://badge.fury.io/js/hunter.io.svg" alt="NPM version"></a> <a href="https://travis-ci.org/b4dnewz/node-emailhunter"><img src="https://travis-ci.org/b4dnewz/node-emailhunter.svg?branch=master" alt="Build Status"></a> <a href="https://david-dm.org/b4dnewz/node-emailhunter"><img src="https://david-dm.org/b4dnewz/node-emailhunter.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://coveralls.io/r/b4dnewz/node-emailhunter"><img src="https://coveralls.io/repos/b4dnewz/node-emailhunter/badge.svg" alt="Coverage percentage"></a></p>
+				<blockquote>
+					<p>An unofficial NodeJs client for Hunter.io API</p>
+				</blockquote>
+				<p><a href="https://npmjs.org/package/hunter.io"><img src="https://nodei.co/npm/hunter.io.png" alt="NPM"></a></p>
+				<p>This is a <strong>unofficial</strong> client for Hunter.io.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>The module is distributed through npm (node package manager) and yast, it can be
+				installed using:</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> hunter.io</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>This project provides an additional documentation automatically generated with <a href="https://github.com/TypeStrong/typedoc">typedoc</a> and based on the original documentation, you can find it at <a href="https://b4dnewz.github.io/node-emailhunter/">https://b4dnewz.github.io/node-emailhunter/</a></p>
+				<a href="#looking-for-the-cli-tool" id="looking-for-the-cli-tool" style="color: inherit; text-decoration: none;">
+					<h2>Looking for the cli tool?</h2>
+				</a>
+				<p>This package also comes with a binary script which include the cli version of this module, you simply have to install it globally and you are ready to go.</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> -g hunter.io</code></pre><p>The package will register <code>email-hunter</code> command, which is built using <a href="https://github.com/tj/commander.js">commanderjs</a> and provides automatic generated usage documentation for options and sub-commands.</p>
+				<pre><code><span class="hljs-meta">$</span><span class="bash"> email-hunter --<span class="hljs-built_in">help</span></span>
+<span class="hljs-meta">$</span><span class="bash"> email-hunter &lt;<span class="hljs-built_in">command</span>&gt; --<span class="hljs-built_in">help</span></span></code></pre><p>In order to use the cli you <strong>must</strong> use a valid Hunter.io API key.</p>
+				<p>You can set it in two ways, one is with command options, another is using environment variables, in particular a variable called <code>HUNTERIO_KEY</code> with your private API key, otherwise if not specified, most of the endpoints will fail since requires authentication.</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting started</h2>
+				</a>
+				<p>Import the module and and create an instance of the hunter:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> EmailHunter <span class="hljs-keyword">from</span> <span class="hljs-string">'hunter.io'</span>;
+<span class="hljs-keyword">const</span> hunter = <span class="hljs-keyword">new</span> EmailHunter(<span class="hljs-string">'YOUR API KEY'</span>);</code></pre>
+				<p><strong>Note</strong>: You can get the Hunter.io API key in your dashboard: <a href="https://hunter.io/api_keys">https://hunter.io/api_keys</a></p>
+				<a href="#methods" id="methods" style="color: inherit; text-decoration: none;">
+					<h2>Methods</h2>
+				</a>
+				<p>The project is TypeScript based and it comes with declaration files, every method signature is well described and can also be found in the <a href="https://b4dnewz.github.io/node-emailhunter/">online documentation</a>.</p>
+				<ul>
+					<li><p><strong>domainSearch</strong>: You give one domain name and it returns all the email addresses using this domain name found on the internet.</p>
+					</li>
+					<li><p><strong>emailFinder</strong>: This API endpoint generates the most likely email address from a domain name, a first name and a last name.</p>
+					</li>
+					<li><p><strong>emailVerifier</strong>: This API endpoint allows you to verify the deliverability of an email address.</p>
+					</li>
+					<li><p><strong>emailCount</strong>: This API endpoint allows you to know how many email addresses we have for one domain.</p>
+					</li>
+					<li><p><strong>account</strong>: This API endpoint enables you to get information regarding your Hunter account at any time.</p>
+					</li>
+					<li><p><strong>leads</strong>: The object which contains all the leads methods</p>
+						<ul>
+							<li><strong>list</strong>: Returns all the leads already saved in your account.</li>
+							<li><strong>retrieve</strong>: Retrieves all the fields of a lead.</li>
+							<li><strong>create</strong>: Creates a new lead.</li>
+							<li><strong>update</strong>: Updates an existing lead.</li>
+							<li><strong>delete</strong>: Deletes an existing lead by ID.</li>
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li><strong>leadsList</strong>: The object which contains all the leads methods<ul>
+							<li><strong>list</strong>: Returns all the leads lists already saved in your account.</li>
+							<li><strong>retrieve</strong>: Retrieves all the fields of a leads list.</li>
+							<li><strong>create</strong>: Creates a new leads list.</li>
+							<li><strong>update</strong>: Updates an existing leads list.</li>
+							<li><strong>delete</strong>: Deletes an existing leads list.</li>
+						</ul>
+					</li>
+				</ul>
+				<p>All the methods supports both callback style functions or promises, so for example to get your profile informations you can do:</p>
+				<pre><code class="language-js"><span class="hljs-comment">// with callback</span>
+hunter.account(<span class="hljs-function">(<span class="hljs-params">err, result</span>) =&gt;</span> { });
+
+<span class="hljs-comment">// with promises</span>
+<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> hunter.account()
+
+hunter.account().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+
+})</code></pre>
+				<hr>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<ol>
+					<li>Fork it ( <a href="https://github.com/b4dnewz/node-emailhunter/fork">https://github.com/b4dnewz/node-emailhunter/fork</a> )</li>
+					<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+					<li>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</li>
+					<li>Write some tests and run (<code>npm run test</code>)</li>
+					<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+					<li>Create a new Pull Request</li>
+				</ol>
+				<hr>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>The <strong>hunter.io</strong> is released under the <a href="./LICENSE">MIT License</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_interfaces_.html">"interfaces"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_leads_.html">"leads"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_leads_lists_.html">"leads_<wbr>lists"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

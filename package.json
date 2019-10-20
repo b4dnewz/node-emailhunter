@@ -30,7 +30,9 @@
     "pretest": "npm run lint",
     "lint": "tslint -p . --fix",
     "test": "jest --coverage",
-    "prebuild": "typedoc src",
+    "docs": "typedoc src",
+    "prebuild": "npm run test",
+    "postbuild": "npm run docs",
     "build": "tsc"
   },
   "repository": "b4dnewz/node-emailhunter",
