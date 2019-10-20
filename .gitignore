@@ -1,4 +1,22 @@
 node_modules
 coverage
 
+# Build folder
 lib
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Editor configurations
+.vscode
+
+# Optional npm cache directory
+.npm
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*

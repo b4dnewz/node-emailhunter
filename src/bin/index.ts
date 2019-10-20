@@ -110,7 +110,6 @@ program.command("leads", "List and manage account related leads.");
  * Saving and managing leads lists.
  * @see: https://hunter.io/api/docs#leads-lists
  */
-program;
 program.command("leads-list", "List and manage account related leads lists.");
 
 // Parse process args and execute commands
