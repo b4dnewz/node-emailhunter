@@ -18,6 +18,7 @@
   "typedocOptions": {
     "mode": "modules",
     "out": "docs",
-    "exclude": "src/bin"
+    "exclude": "src/bin",
+    "disableOutputCheck": true
   }
 }
