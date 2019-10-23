@@ -25,9 +25,9 @@ program
   .description("List all the leads")
   .option("-l, --limit [number]", "A limit on the number of leads to be returned.", 20)
   .option("-o, --offset [number]", "The number of leads to skip.", 0)
-  .action(({ options }) => {
-    const { apiKey, offset, limit } = options;
-    hunter = new EmailHunter(apiKey);
+  .action((options) => {
+    const { parent, offset, limit } = options;
+    hunter = new EmailHunter(parent.apiKey);
     hunter.leads.list(
       {
         limit,
@@ -45,8 +45,8 @@ program
   .command("retrieve <id>")
   .alias("get")
   .description("Retrieves all the informations of a lead by ID.")
-  .action((id, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((id, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.leads.retrieve(id, handleResponse);
   });
 
@@ -58,8 +58,8 @@ program
   .command("create [email]")
   .alias("new")
   .description("Creates a new lead.")
-  .action((email, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((email, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
 
     function create(opts) {
       hunter.leads.create(opts, handleResponse);
@@ -82,7 +82,7 @@ program
           validate: (v) => v !== "",
         },
         {
-          message: "The first name of the leads. (optional)",
+          message: "The first name of the lead. (optional)",
           name: "first_name",
           type: "input",
         },
@@ -118,8 +118,8 @@ program
   .command("delete <id>")
   .alias("rm")
   .description("Delete a lead by ID.")
-  .action((id, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((id, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.leads.delete(id, handleResponse);
   });
 
@@ -132,30 +132,29 @@ program
   .command("update <id>")
   .alias("up")
   .description("Update the lead informations by ID.")
-  .action((id, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((id, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
 
-    // Ask for lead properties
     inquirer
       .prompt([
         {
-          message: "The new email address of the lead.",
+          message: "Enter the email address of the lead.",
           name: "email",
           type: "input",
           validate: (v) => v !== "",
         },
         {
-          message: "The first name of the leads. (optional)",
+          message: "Enter the first name of the lead. (optional)",
           name: "first_name",
           type: "input",
         },
         {
-          message: "The last name of the lead. (optional)",
+          message: "Enter the last name of the lead. (optional)",
           name: "last_name",
           type: "input",
         },
         {
-          message: "The name of the company the lead is working in. (optional)",
+          message: "Enter the name of the company the lead is working in. (optional)",
           name: "company",
           type: "input",
         },

@@ -9,7 +9,6 @@ import { handleResponse } from "./common";
 
 let hunter: EmailHunter;
 
-// Ensure proper command name
 program
   .name("email-hunter leads-list")
   .description("Saving and managing leads lists.")
@@ -23,8 +22,8 @@ program
   .option("-l, --limit [number]", "A limit on the number of leads to be returned.", 20)
   .option("-o, --offset [number]", "The number of leads to skip.", 0)
   .action((options) => {
-    const { apiKey, offset, limit } = options;
-    hunter = new EmailHunter(apiKey);
+    const { parent, offset, limit } = options;
+    hunter = new EmailHunter(parent.apiKey);
     hunter.leadsList.list({ offset, limit }, handleResponse);
   });
 
@@ -33,8 +32,8 @@ program
   .command("retrieve <id>")
   .alias("get")
   .description("Retrieves all the informations of a leads list by ID.")
-  .action((id, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((id, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.leadsList.retrieve(id, handleResponse);
   });
 
@@ -43,8 +42,8 @@ program
   .command("create [name]")
   .alias("new")
   .description("Creates a new leads list.")
-  .action((name, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((name, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
 
     function create(opts) {
       hunter.leadsList.create(opts, handleResponse);
@@ -54,11 +53,10 @@ program
       return create({ name });
     }
 
-    // Ask for arguments
     inquirer
       .prompt([
         {
-          message: "The name of the leads list.",
+          message: "Enter the name of the leads list.",
           name: "name",
           type: "input",
           validate: (v) => v !== "",
@@ -74,8 +72,8 @@ program
   .command("remove <ids...>")
   .alias("rm")
   .description("Delete one or more leads list by ID.")
-  .action((ids, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((ids, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     ids.forEach((id) => {
       hunter.leadsList.delete(id, handleResponse);
     });
@@ -86,18 +84,18 @@ program
   .command("update <id>")
   .alias("up")
   .description("Update the leads list informations by name.")
-  .action((id, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((id, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     inquirer
       .prompt([
         {
-          message: "The new name of the leads list.",
+          message: "Enter the new name of the leads list.",
           name: "name",
           type: "input",
           validate: (v) => v !== "",
         },
         {
-          message: "The id of the team to share your leads with (must be your team).",
+          message: "The id of the team to share your leads with. (optional)",
           name: "team_id",
           type: "input",
         },

@@ -28,8 +28,8 @@ program
 program
   .command("account")
   .description("Get information regarding your Hunter account at any time.")
-  .action(({ apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action(({ parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.account(handleResponse);
   });
 
@@ -43,8 +43,8 @@ program
   .description(
     "Know how many email addresses are associated to one domain or one company.",
   )
-  .action((domain, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((domain, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.emailCount(domain, handleResponse);
   });
 
@@ -56,8 +56,8 @@ program
   .command("verify <email>")
   .alias("ve")
   .description("Verify the deliverability of a given email address.")
-  .action((email, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((email, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.emailVerifier(email, handleResponse);
   });
 
@@ -75,8 +75,8 @@ program
   .option("-o, --offset [number]", "Specifies the number of email addresses to skip.", 0)
   .option("-t, --type [type]", "Get only personal or generic email addresses.")
   .action((domain, options) => {
-    const { apiKey, type, offset, limit } = options;
-    hunter = new EmailHunter(apiKey);
+    const { parent, type, offset, limit } = options;
+    hunter = new EmailHunter(parent.apiKey);
     hunter.domainSearch({ domain, type, offset, limit }, handleResponse);
   });
 
@@ -88,8 +88,8 @@ program
 program
   .command("find <domain> <first_name> <last_name>")
   .description("Generates or retrieves the most likely email address from given fields.")
-  .action((domain, first_name, last_name, { apiKey }) => {
-    hunter = new EmailHunter(apiKey);
+  .action((domain, first_name, last_name, { parent }) => {
+    hunter = new EmailHunter(parent.apiKey);
     hunter.emailFinder(
       {
         domain,
