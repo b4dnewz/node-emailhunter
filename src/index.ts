@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import qs from "querystring";
 
 import { CallbackFunction, DomainSearchOptions, EmailCountOptions, EmailFinderOptions } from "./interfaces";
@@ -18,7 +18,7 @@ export default class EmailHunter {
   private readonly apiKey: string;
   private readonly instance: AxiosInstance;
 
-  constructor(key: string) {
+  constructor(key: string, opts?: AxiosRequestConfig) {
     if (!key || key === "") {
       throw new Error("You must enter the Hunter.io API key.");
     }
@@ -29,6 +29,7 @@ export default class EmailHunter {
     this.leadsList = new LeadsList(this);
 
     this.instance = axios.create({
+      ...opts,
       baseURL: this.endpoint,
       validateStatus(status) {
         return status >= 200 && status < 300;

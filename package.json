@@ -13,16 +13,12 @@
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "bin": {
-    "email-hunter": "./lib/bin/index.js"
-  },
   "keywords": [
     "email-hunter",
     "email-finder",
     "email-search",
     "hunterio",
     "node-client",
-    "cli-utils",
     "osint",
     "information-gathering"
   ],
@@ -38,10 +34,7 @@
   "repository": "b4dnewz/node-emailhunter",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
-    "commander": "^3.0.2",
-    "inquirer": "^7.0.0",
-    "update-notifier": "^3.0.1"
+    "axios": "^0.19.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

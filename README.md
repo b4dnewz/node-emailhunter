@@ -23,10 +23,10 @@ This project provides an additional documentation automatically generated with [
 
 ## Looking for the cli tool?
 
-This package also comes with a binary script which include the cli version of this module, you simply have to install it globally and you are ready to go.
+You can install the dedicated [cli version](https://github.com/b4dnewz/node-emailhunter-cli) of this module, you simply have to install it globally and you are ready to go.
 
 ```
-npm install -g hunter.io
+npm install -g hunter.io-cli
 ```
 
 The package will register `email-hunter` command, which is built using [commanderjs](https://github.com/tj/commander.js) and provides automatic generated usage documentation for options and sub-commands.
