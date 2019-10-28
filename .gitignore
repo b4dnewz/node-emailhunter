@@ -4,6 +4,9 @@ coverage
 # Build folder
 lib
 
+# Documentation output folder
+docs
+
 # TypeScript cache
 *.tsbuildinfo
 
