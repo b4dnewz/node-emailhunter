@@ -29,8 +29,7 @@
     "lint": "tslint -p . --fix",
     "test": "jest --coverage",
     "docs": "typedoc src",
-    "build": "tsc",
-    "postbuild": "npm run docs"
+    "build": "tsc"
   },
   "repository": "b4dnewz/node-emailhunter",
   "license": "MIT",
