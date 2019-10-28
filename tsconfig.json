@@ -16,7 +16,7 @@
     "__tests__"
   ],
   "typedocOptions": {
-    "mode": "modules",
+    "mode": "file",
     "out": "docs",
     "exclude": "src/bin",
     "disableOutputCheck": true
