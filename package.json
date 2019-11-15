@@ -1,52 +1,52 @@
 {
-  "name": "hunter.io",
-  "version": "0.3.0-beta.1",
-  "description": "An unofficial NodeJs client for Hunter.io API service",
-  "homepage": "https://b4dnewz.github.io/node-emailhunter/",
-  "author": {
-    "name": "b4dnewz",
-    "email": "filippo@codekraft.it",
-    "url": "https://b4dnewz.github.io/"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "keywords": [
-    "email-hunter",
-    "email-finder",
-    "email-search",
-    "hunterio",
-    "node-client",
-    "osint",
-    "information-gathering"
-  ],
-  "scripts": {
-    "prepublishOnly": "npm run build",
-    "pretest": "npm run lint",
-    "prebuild": "npm run test",
-    "lint": "tslint -p . --fix",
-    "test": "jest --coverage",
-    "docs": "typedoc src",
-    "build": "tsc"
-  },
-  "repository": "b4dnewz/node-emailhunter",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.19.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^24.0.19",
-    "@types/nock": "^11.1.0",
-    "@types/node": "^12.11.1",
-    "coveralls": "^3.0.7",
-    "jest": "^24.9.0",
-    "nock": "^11.4.0",
-    "ts-jest": "^24.1.0",
-    "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.6.4"
-  }
+    "name": "hunter.io",
+    "version": "0.3.0-beta.1",
+    "description": "An unofficial NodeJs client for Hunter.io API service",
+    "homepage": "https://b4dnewz.github.io/node-emailhunter/",
+    "author": {
+        "name": "b4dnewz",
+        "email": "filippo@codekraft.it",
+        "url": "https://b4dnewz.github.io/"
+    },
+    "files": [
+        "lib"
+    ],
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "keywords": [
+        "email-hunter",
+        "email-finder",
+        "email-search",
+        "hunterio",
+        "node-client",
+        "osint",
+        "information-gathering"
+    ],
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "pretest": "npm run lint",
+        "prebuild": "npm run test",
+        "lint": "tslint -p . --fix",
+        "test": "jest --coverage",
+        "docs": "typedoc src",
+        "build": "tsc"
+    },
+    "repository": "b4dnewz/node-emailhunter",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.19"
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.23",
+        "@types/nock": "^11.1.0",
+        "@types/node": "^12.12.7",
+        "coveralls": "^3.0.7",
+        "jest": "^24.9.0",
+        "nock": "^11.7.0",
+        "ts-jest": "^24.1.0",
+        "ts-node": "^8.5.2",
+        "tslint": "^5.20.1",
+        "typedoc": "^0.15.2",
+        "typescript": "^3.7.2"
+    }
 }
